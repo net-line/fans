@@ -1,10 +1,11 @@
 import React from "react";
 import classes from "./modeladvertorial.module.css";
 import { useStore } from "../store-hooks/store";
-const Modeladvertorial = (props) =>{
-    const dispatch = useStore()[1];
+import { Link } from "react-router-dom";
+const Modeladvertorial = React.memo(props =>{
+    const dispatch = useStore(false)[1];
     const modelname=props.name;
-
+console.log("renders")
   const toggleFavHandler=() =>{
     dispatch('TOGGLE_FAV', props.id)
     console.log(props)
@@ -36,22 +37,24 @@ const Modeladvertorial = (props) =>{
             </p>
             <ul className={classes.liste}>
               <li>
-                <a href={modelname}>{props.numberofitems} Posts</a>
+                <Link to={`/${modelname}`}> {props.numberofitems} Posts</Link>
               </li>
             </ul>
             <button
-          className={!props.isFav ? 'button-outline' : ''}
-          onClick={toggleFavHandler}
-        >
-          {props.isFav ? 'Un-Favorite' : 'Favorite'}
-        </button>
-        <h5>
-              <a href={modelname}>Jetzt abonieren</a>
-            </h5>
+              className={!props.isFav ? "button-outline" : ""}
+              onClick={toggleFavHandler}
+            >
+              {props.isFav ? "Un-Favorite" : "Favorite"}
+            </button>
+
+            <Link to={`/${modelname}`}>
+            
+              <h5>Jetzt abonieren</h5>
+            </Link>
           </div>
         </div>
       </div>
     );
-};
+});
 
 export default Modeladvertorial;

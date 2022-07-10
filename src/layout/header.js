@@ -1,6 +1,7 @@
 
 import classes from "./header.module.css";
 import React from "react";
+import {Link} from 'react-router-dom';
 //import { NavItem, NavLink, Nav, Dropdown, DropdownToggle, DropdownMenu, DropdownItem} from "reactstrap";
 
 
@@ -8,20 +9,21 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <div className={classes.logo}>
-        <a href="/">
+        <Link to="/">
           <img src="/images/deinefans_logo_2.png" alt="Logo" />
-        </a>
+        </Link>
       </div>
       <div className={classes.navlinks}>
-        <h5>
-          <a href="/models">Models</a>
-        </h5>
-        <h5>
-          <a href="/privacy">Datenschutz</a>
-        </h5>
-        <h5>
-          <a href="/agb">AGB</a>
-        </h5>
+        <Link to="/models">
+          <h5>Models</h5>
+        </Link>
+        <Link to="/privacy">
+          <h5>Datenschutz</h5>
+        </Link>
+        <Link to="/agb">
+          <h5>AGB</h5>
+        </Link>
+        
       </div>
     </header>
   );
