@@ -2,12 +2,16 @@ import React from "react";
 import {useParams} from "react-router-dom";
 import Modeladvertorial from "../components/Cards/modeladvertorial";
 import Allpostes from "../components/lists/allposts";
+import { useStore } from "../components/store-hooks/store";
 
 const Detailsite=(props)=>{
 
 const params = useParams();
 const mygirl =params.girlId
-const db = Array.from(props.alldata);
+
+const girls=useStore()[0];
+
+const db = Array.from(girls.postings);
 const girl = db.find(el => el.pseudo===mygirl)
 
 
@@ -22,8 +26,10 @@ const girl = db.find(el => el.pseudo===mygirl)
               age={girl.age}
               numberofitems={girl.posts.length}
               key={girl.pseudo}
+              isFav={girl.isFav}
+              id={girl.id}
             />
-          
+
             <Allpostes girl={girl} />
           </div>
         )}

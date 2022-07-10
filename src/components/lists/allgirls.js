@@ -1,11 +1,16 @@
 import React from "react";
 import Modeladvertorial from "../Cards/modeladvertorial";
+import { useStore } from "../store-hooks/store";
+
+
 
 const Allgirls = (props) => {
     console.log(props.items[0].posts.length)
+
+    const state = useStore()[0];
   return (
     <div>
-      {props.items.map((girl) => (
+      {state.postings.map((girl) => (
        
         <Modeladvertorial 
             name={girl.pseudo} 
@@ -13,6 +18,8 @@ const Allgirls = (props) => {
             age={girl.age}
             numberofitems={girl.posts.length}
             key={girl.pseudo}
+            isFav={girl.isFav}
+            id={girl.id}
             />
       ))}
      

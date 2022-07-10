@@ -1,8 +1,15 @@
 import React from "react";
 import classes from "./modeladvertorial.module.css";
-
+import { useStore } from "../store-hooks/store";
 const Modeladvertorial = (props) =>{
+    const dispatch = useStore()[1];
     const modelname=props.name;
+
+  const toggleFavHandler=() =>{
+    dispatch('TOGGLE_FAV', props.id)
+    console.log(props)
+  }
+
     return (
       <div className={classes.pad}>
         <div className={classes.userinfo}>
@@ -32,8 +39,13 @@ const Modeladvertorial = (props) =>{
                 <a href={modelname}>{props.numberofitems} Posts</a>
               </li>
             </ul>
-
-            <h5>
+            <button
+          className={!props.isFav ? 'button-outline' : ''}
+          onClick={toggleFavHandler}
+        >
+          {props.isFav ? 'Un-Favorite' : 'Favorite'}
+        </button>
+        <h5>
               <a href={modelname}>Jetzt abonieren</a>
             </h5>
           </div>
