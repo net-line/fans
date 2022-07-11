@@ -43,6 +43,7 @@ console.log("renders")
 
             <button
               className={!props.isFav ? `button-outline ${classes.btn}` : `${classes.btn}`}
+              //Nicht vergessen, btn-Style mit MyButton Style synchronisieren
               onClick={toggleFavHandler}
             >
               {props.isFav ? "Von Favoriten entfernen" : "Zu Favoriten hinzufügen"}
