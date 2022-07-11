@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import MyButton from "./WrapperComponents/myCard.js/myButton";
 
 const Messengercard=(props)=>{
     const[message,setMessages] = useState([]);
@@ -34,10 +35,8 @@ if(!response.ok){
  
 return (
   <div>
-    <button onClick={fetchMessagesHandler}>Messenger:</button>
-    {message && message.map((peops) => (
-      <h5 key={peops.id}>{peops.id} </h5>
-    ))}
+    <MyButton onClick={fetchMessagesHandler}>Messenger:</MyButton>
+    {message && message.map((peops) => <h5 key={peops.id}>{peops.id} </h5>)}
     {!message && <h5>No Data</h5>}
     {error && <p>{error}</p>}
   </div>

@@ -3,6 +3,7 @@ import classes from "./modeladvertorial.module.css";
 import { useStore } from "../store-hooks/store";
 import { Link } from "react-router-dom";
 
+
 const Modeladvertorial = React.memo(props =>{
     const dispatch = useStore(false)[1];
     const modelname=props.name;
@@ -41,10 +42,10 @@ console.log("renders")
             </ul>
 
             <button
-              className={!props.isFav ? "button-outline" : ""}
+              className={!props.isFav ? `button-outline ${classes.btn}` : `${classes.btn}`}
               onClick={toggleFavHandler}
             >
-              {props.isFav ? "Un-Favorite" : "Favorite"}
+              {props.isFav ? "Von Favoriten entfernen" : "Zu Favoriten hinzufügen"}
             </button>
 
             <Link to={`/${modelname}`}>
