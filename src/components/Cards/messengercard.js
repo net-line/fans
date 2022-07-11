@@ -1,46 +1,35 @@
-import React, {useState} from "react";
 import MyButton from "./WrapperComponents/myCard.js/myButton";
 
-const Messengercard=(props)=>{
-    const[message,setMessages] = useState([]);
-    const [error,setError] = useState(null);
-   
-async function fetchMessagesHandler(){
-    setError(null)
-    try{
-        const response = await fetch(
-          `https://api.deine.fans/api/timeline?producerID=${props.id}`,
-          {
-            method: "GET",
-            headers: {
-              accept: "application/json",
-            },
-          }
-        );
-        const data = await response.json();
-       
-if(!response.ok){
-    throw new Error(response.status)
-}
+import React from "react";
+import useMyHttp from "../../hooks/myhttp";
 
-        setMessages(data.posts);
-        if (!message){return <h5>No Data</h5>}
-}
-    catch(error){
-        setError(error.message);
-        setMessages([]);
-    }
-    
-}
+const Messengercard=(props)=>{
+  
+ 
+  const { isLoading, data, error, sendRequest, clear } = useMyHttp()
+  function fetchMessagesHandler() {
+    //sendRequest(`https://api.deine.fans/api/timeline?producerID=${props.id}`);
+    sendRequest(
+      `https://api.deine.fans/api/timeline?producerID=${props.id}`,
+      "GET"
+    );
+    console.log(isLoading);
+    console.log(data);
+    console.log(error);
+    console.log(clear);
+  
+  } 
  
 return (
   <div>
     <div onClick={fetchMessagesHandler}>
       <MyButton>Messenger:</MyButton>
     </div>
-    {message && message.map((peops) => <h5 key={peops.id}>{peops.id} </h5>)}
-    {!message && <h5>No Data</h5>}
-    {error && <p>{error}</p>}
+   {data &&<div>
+      {data && data.posts.map((peops) => <h5 key={peops.id}>{peops.id} </h5>)}
+      {!data && <h5>No Data</h5>}
+      {error && <p>{error}</p>}
+    </div>}
   </div>
 );
 };

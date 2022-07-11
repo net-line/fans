@@ -11,10 +11,13 @@ const params = useParams();
 const mygirl =params.girlId
 
 const girls=useStore()[0];
-
+ //const dispatch = useStore()[1];
+console.log(girls)
 const db = Array.from(girls.postings);
 const girl = db.find(el => el.pseudo===mygirl)
 
+//const test = dispatch('FETCH_DATA',mygirl);
+//console.log(test)
 
     return (
       <div>
