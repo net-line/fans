@@ -33,7 +33,7 @@ console.log("renders")
             </h4>
 
             <p>
-              Hier kann ein bisschen Text stehen, falls es mal benötigt wird.
+              {props.mymotto}
             </p>
             <ul className={classes.liste}>
               <li>

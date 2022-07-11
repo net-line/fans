@@ -5,7 +5,6 @@ import Modeladvertorial from "../Cards/modeladvertorial";
 
 const Favgirls = () =>{
 const originstate = useStore()[0];
-console.log(originstate)
 const secstate = Array.from(originstate.postings);
 const state=secstate.filter(el => el.isFav===true);
 
@@ -22,6 +21,7 @@ if(state.length<=0){return<div>Noch keine Favoriten gesetzt</div>}
             key={girl.pseudo}
             isFav={girl.isFav}
             id={girl.id}
+            mymotto={girl.mymotto}
           />
         ))}
       </div>

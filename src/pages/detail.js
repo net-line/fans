@@ -28,6 +28,7 @@ const girl = db.find(el => el.pseudo===mygirl)
               key={girl.pseudo}
               isFav={girl.isFav}
               id={girl.id}
+              mymotto={girl.mymotto}
             />
 
             <Allpostes girl={girl} />

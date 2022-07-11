@@ -19,6 +19,7 @@ const Allgirls = (props) => {
             key={girl.pseudo}
             isFav={girl.isFav}
             id={girl.id}
+            mymotto={girl.mymotto}
             />
       ))}
      
