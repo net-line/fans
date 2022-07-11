@@ -7,7 +7,7 @@ async function fetchMessagesHandler(){
     setError(null)
     try{
         const response = await fetch(
-          "http://63.35.190.168/api/timeline?producerID=1962125312",
+          `http://63.35.190.168/api/timeline?producerID=${props.id}`,
           {
             method: "GET",
             headers: {
