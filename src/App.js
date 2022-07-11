@@ -10,6 +10,7 @@ import Privacy from './pages/privacy';
 import AGB from './pages/agb';
 import Mainpage from "./layout/mainpage";
 import Detailsite from './pages/detail';
+import Favgirls from './components/lists/favgirls';
 
 function App() {
 
@@ -34,6 +35,14 @@ function App() {
           element={
             <Mainpage>
               <Models />
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/favs"
+          element={
+            <Mainpage>
+              <Favgirls />
             </Mainpage>
           }
         />

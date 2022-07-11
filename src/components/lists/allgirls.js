@@ -5,8 +5,7 @@ import { useStore } from "../store-hooks/store";
 
 
 const Allgirls = (props) => {
-    console.log(props.items[0].posts.length)
-
+   
     const state = useStore()[0];
   return (
     <div>
