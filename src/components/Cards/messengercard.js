@@ -3,11 +3,12 @@ import React, {useState} from "react";
 const Messengercard=(props)=>{
     const[message,setMessages] = useState([]);
     const [error,setError] = useState(null);
+   
 async function fetchMessagesHandler(){
     setError(null)
     try{
         const response = await fetch(
-          `http://63.35.190.168/api/timeline?producerID=${props.id}`,
+          `https://api.deine.fans/api/timeline?producerID=${props.id}`,
           {
             method: "GET",
             headers: {
@@ -22,9 +23,11 @@ if(!response.ok){
 }
 
         setMessages(data.posts);
+        if (!message){return <h5>No Data</h5>}
 }
     catch(error){
         setError(error.message);
+        setMessages([]);
     }
     
 }
@@ -32,9 +35,10 @@ if(!response.ok){
 return (
   <div>
     <button onClick={fetchMessagesHandler}>Messenger:</button>
-    {message.map((peops) => (
+    {message && message.map((peops) => (
       <h5 key={peops.id}>{peops.id} </h5>
     ))}
+    {!message && <h5>No Data</h5>}
     {error && <p>{error}</p>}
   </div>
 );

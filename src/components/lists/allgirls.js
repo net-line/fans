@@ -10,19 +10,18 @@ const Allgirls = (props) => {
   return (
     <div>
       {state.postings.map((girl) => (
-       
-        <Modeladvertorial 
-            name={girl.pseudo} 
-            image={girl.profilepic}
-            age={girl.age}
-            numberofitems={girl.posts.length}
-            key={girl.pseudo}
-            isFav={girl.isFav}
-            id={girl.id}
-            mymotto={girl.mymotto}
-            />
+        <Modeladvertorial
+          name={girl.pseudo}
+          image={girl.profilepic}
+          secondimage={girl.secondarypic}
+          age={girl.age}
+          numberofitems={girl.posts.length}
+          key={girl.pseudo}
+          isFav={girl.isFav}
+          id={girl.id}
+          mymotto={girl.mymotto}
+        />
       ))}
-     
     </div>
   );
 };

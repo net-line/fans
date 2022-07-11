@@ -1,5 +1,6 @@
 import React from "react";
 import {useParams} from "react-router-dom";
+import Messengercard from "../components/Cards/messengercard";
 import Modeladvertorial from "../components/Cards/modeladvertorial";
 import Allpostes from "../components/lists/allposts";
 import { useStore } from "../components/store-hooks/store";
@@ -23,6 +24,7 @@ const girl = db.find(el => el.pseudo===mygirl)
             <Modeladvertorial
               name={girl.pseudo}
               image={girl.profilepic}
+              secondimage={girl.secondarypic}
               age={girl.age}
               numberofitems={girl.posts.length}
               key={girl.pseudo}
@@ -30,6 +32,7 @@ const girl = db.find(el => el.pseudo===mygirl)
               id={girl.id}
               mymotto={girl.mymotto}
             />
+            <Messengercard id={girl.id} />
 
             <Allpostes girl={girl} />
           </div>

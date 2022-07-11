@@ -19,10 +19,13 @@ const configureStore = () =>{
           id: "1962125312",
           isFav: false,
           pseudo: "Surfergirl",
+
           mymotto: "Ab in den Pool!",
           age: 21,
           profilepic:
             "https://image.shutterstock.com/z/stock-photo-girl-squats-on-wall-with-a-surfboard-558028459.jpg",
+          secondarypic:
+            "https://image.shutterstock.com/image-photo/happy-young-woman-sitting-on-600w-2018571389.jpg",
           posts: [
             {
               title: "Da waren wa am Strand",
@@ -52,6 +55,8 @@ const configureStore = () =>{
           age: 25,
           profilepic:
             "https://image.shutterstock.com/image-photo/young-fun-smiling-happy-housewife-600w-2012396270.jpg",
+          secondarypic:
+            "https://image.shutterstock.com/image-photo/portrait-beautiful-african-woman-smiling-600w-2085055810.jpg",
           posts: [
             {
               title: "Vernasch mich",
@@ -69,6 +74,8 @@ const configureStore = () =>{
           age: 30,
           profilepic:
             "https://image.shutterstock.com/image-photo/bored-little-girl-frightened-child-600w-1363228364.jpg",
+          secondarypic:
+            "https://image.shutterstock.com/image-photo/close-portrait-happy-young-north-600w-1647959941.jpg",
           posts: [
             {
               title: "Hamwa verstecken gespielt",

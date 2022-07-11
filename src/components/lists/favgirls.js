@@ -16,6 +16,7 @@ if(state.length<=0){return<div>Noch keine Favoriten gesetzt</div>}
           <Modeladvertorial
             name={girl.pseudo}
             image={girl.profilepic}
+            secondimage={girl.secondarypic}
             age={girl.age}
             numberofitems={girl.posts.length}
             key={girl.pseudo}
