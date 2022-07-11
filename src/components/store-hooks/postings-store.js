@@ -16,7 +16,7 @@ const configureStore = () =>{
     initStore(actions, {
       postings: [
         {
-          id: 387678686787,
+          id: "1962125312",
           isFav: false,
           pseudo: "Surfergirl",
           mymotto: "Ab in den Pool!",
@@ -45,7 +45,7 @@ const configureStore = () =>{
           ],
         },
         {
-          id: 387678686788,
+          id: "387678686788",
           isFav: false,
           pseudo: "Bäckergirl",
           mymotto: "Ich backe am liebsten nackt!",
@@ -62,7 +62,7 @@ const configureStore = () =>{
           ],
         },
         {
-          id: 387678686789,
+          id: "387678686789",
           isFav: true,
           pseudo: "Hassenichgesehen",
           mymotto: "Ich bin die Tollste",

@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./modeladvertorial.module.css";
 import { useStore } from "../store-hooks/store";
 import { Link } from "react-router-dom";
+import Messengercard from "./messengercard";
 const Modeladvertorial = React.memo(props =>{
     const dispatch = useStore(false)[1];
     const modelname=props.name;
@@ -40,6 +41,7 @@ console.log("renders")
                 <Link to={`/${modelname}`}> {props.numberofitems} Posts</Link>
               </li>
             </ul>
+            <Messengercard id={props.id}/>
             <button
               className={!props.isFav ? "button-outline" : ""}
               onClick={toggleFavHandler}
