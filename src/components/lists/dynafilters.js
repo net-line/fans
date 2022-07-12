@@ -23,7 +23,7 @@ return (
           </li>
         </Link>
         <Link className={classes.leftmenue} to="/models">
-          <li className={classes.icon3}>
+          <li className={classes.icon8}>
             <span className="d-none d-md-block">Girls</span>
           </li>
         </Link>
