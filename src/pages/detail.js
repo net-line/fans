@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import {useParams} from "react-router-dom";
+import {useLocation, useParams} from "react-router-dom";
 //import Messengercard from "../components/Cards/messengercard";
 import Modeladvertorial from "../components/Cards/modeladvertorial";
+import Allpostes from "../components/lists/allposts";
 //import Allpostes from "../components/lists/allposts";
 import { useStore } from "../components/store-hooks/store";
 import useMyHttp from "../hooks/myhttp";
@@ -11,7 +12,12 @@ import useMyHttp from "../hooks/myhttp";
 const Detailsite=(props)=>{
 
 const params = useParams();
+
 const mygirl =params.girlId
+const location = useLocation();
+console.log("hallo",location.state)
+const  test  = location.state;
+
 
 const girls=useStore()[0];
  //const dispatch = useStore()[1];
@@ -21,21 +27,25 @@ console.log(girls, mygirl)
  const { isLoading, data, error, sendRequest, clear } = useMyHttp();
  function fetchGirlsHandler() {
    //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
-   sendRequest(`https://api.deine.fans/api/girls/${props.id}`, "GET");
+   sendRequest(
+     `https://api.deine.fans/api/girls/${mygirl}`,
+     "GET"
+   );
    console.log(isLoading);
    console.log(data);
    console.log(error);
    console.log(clear);
+   
  }
  useEffect(() => {
    fetchGirlsHandler();
- }, []);
+  
+ }, [test]);
 
     return (
       <div>
-        
         {isLoading && <p>Lädt noch</p>}
-        
+
         {!isLoading && data && data.girl && (
           <div>
             <Modeladvertorial
@@ -49,6 +59,7 @@ console.log(girls, mygirl)
               id={data.girl.producerID}
               mymotto={`Meine Haarfarbe ist ${data.girl.hairColor} und ich habe ${data.girl.cupSize} Oberweite`}
             />
+            <Allpostes girl={data.girl} />
           </div>
         )}
       </div>

@@ -1,20 +1,40 @@
 import Modelcard from "../Cards/modelcard";
-import React from "react";
+import React, { useEffect } from "react";
+import useMyHttp from "../../hooks/myhttp";
 //import { useStore } from "../store-hooks/store";
 
+
 const Allpostes=(props)=>{
-//const state = useStore()[0];
+  console.log(props)
+const { isLoading, data, error, sendRequest, clear } = useMyHttp();
+function fetchGirlsHandler() {
+  //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
+  sendRequest(`https://api.deine.fans/api/images/?producerID=${props.girl.producerID}`, "GET");
+  console.log(isLoading);
+  console.log(data);
+  console.log(error);
+  console.log(clear);
+}
+useEffect(() => {
+  fetchGirlsHandler();
+}, []);
+
     return (
       <div>
-       {props.girl.posts.map((girl) => (
-        <Modelcard name={props.girl.pseudo} 
-        title={girl.title}
-        key={girl.title}
-        image={girl.image}
-        content={girl.content}
-        />
-       ))}
-    
+        <button onClick={fetchGirlsHandler}>Click</button>
+        {!isLoading && data && data.images && <p>{data.images[0].imageID}</p>}
+        {!isLoading &&
+          data &&
+          data.images &&
+          data.images.map((image) => (
+            <Modelcard
+              name={props.girl.pseudo}
+              key={image.imageID}
+              image={image.imageURL}
+              content={image.uploadTime}
+            />
+          ))}{" "}
+        
       </div>
     );
 };

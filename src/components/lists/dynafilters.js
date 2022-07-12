@@ -27,6 +27,11 @@ return (
             <span className="d-none d-md-block">Girls</span>
           </li>
         </Link>
+        <Link className={classes.leftmenue} to="/login">
+          <li className={classes.icon3}>
+            <span className="d-none d-md-block">Login</span>
+          </li>
+        </Link>
       </ul>
     </div>
   </Fragment>

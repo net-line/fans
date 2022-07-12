@@ -11,6 +11,7 @@ import AGB from './pages/agb';
 import Mainpage from "./layout/mainpage";
 import Detailsite from './pages/detail';
 import Favgirls from './components/lists/favgirls';
+import Login from './pages/login';
 
 
 function App() {
@@ -20,7 +21,6 @@ function App() {
 
   return (
     <Fragment>
-     
       <Routes>
         <Route
           exact
@@ -40,6 +40,14 @@ function App() {
           }
         />
         <Route
+          path="/login"
+          element={
+            <Mainpage>
+              <Login />
+            </Mainpage>
+          }
+        />
+        <Route
           path="/favs"
           element={
             <Mainpage>
@@ -51,6 +59,7 @@ function App() {
         <Route path="/agb" element={<AGB />} />
         <Route
           path="/:girlId"
+          
           element={
             <Mainpage>
               <Detailsite />
