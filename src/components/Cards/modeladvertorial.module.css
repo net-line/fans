@@ -12,6 +12,8 @@
   color:#000;
 }
 
+.userinfo a {text-decoration:none ;}
+
 .userinfoheader img {
   width: 100%;
   min-height:100%;
