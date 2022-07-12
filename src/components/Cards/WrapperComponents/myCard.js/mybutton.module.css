@@ -9,21 +9,23 @@
   position: relative;
   font-weight: 600;
   font-size: 12px;
-  background-color: #c83232;
+  color: #c83232;
+  background-color: #eeeeee;
   padding: 5px 5px;
   margin: 0 auto;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.10);
   border-radius: 5px;
   transition:0.5s;
 }
+.btn:hover {
+ background-color: #04003b;
+ color: #eeeeee;
+}
+
 .btn span {
   position: relative; 
   z-index: 1;
 }
-.btn{
-  color: #fff; 
-  text-decoration:none
-}
-.btn:hover {
- background-color: #04003b;
+
+.btn span a {
+text-decoration: none;
 }
