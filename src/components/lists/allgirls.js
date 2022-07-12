@@ -7,8 +7,7 @@ import { useStore } from "../store-hooks/store";
 const Allgirls = (props) => {
    
     const state = useStore()[0];
-    console.log("hier")
-    console.log(state)
+    
   return (
     <div>
       {state.postings.map((girl) => (
