@@ -13,7 +13,7 @@ const Mainpage=(props)=>{
 
     return (
       <div>
-        <Row className="bg-dark">
+        <Row className="bg-light">
           <Col className={`bg-light border ${classes.fixme}`} xs="3" lg="2">
             <DynaFilters />
           </Col>

@@ -7,7 +7,7 @@ const DynaFilters = () => {
 
 
 return (
-  <Fragment>
+  <Fragment className={classes.outlinegone}>
     <Header />
 
     <div className={classes.leftmenue}>

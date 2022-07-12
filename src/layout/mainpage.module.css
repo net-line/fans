@@ -8,4 +8,5 @@ body{
     height:100vh;
     width:25.5%;
     position:relative fixed;
+    outline:none;
 }
