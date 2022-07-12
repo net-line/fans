@@ -3,7 +3,6 @@
   display: block;
   text-align: center;
   cursor: pointer;
-  text-transform: uppercase;
   outline: none;
   overflow: hidden;
   position: relative;
@@ -11,9 +10,9 @@
   font-size: 12px;
   color: #c83232;
   background-color: #eeeeee;
-  padding: 5px 5px;
+  padding: 5px 10px;
   margin: 0 auto;
-  border-radius: 5px;
+  border-radius: 15px;
   transition:0.5s;
 }
 .btn:hover {
