@@ -36,12 +36,12 @@
   
 
 
-.icon li:nth-child(1)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(2)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(3)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(4)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(5)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(6)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(7)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(8)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
-.icon li:nth-child(9)::before {content: url(https://s3-eu-west-1.amazonaws.com/guppyflexpagefiles/masterelsen-test/93e5298bba8d43de9430e060df25505b.png) " "; padding:0px 20px 0 0;}
+.icon1::before {content: url(/images/icons/home.png) " "; padding:0px 20px 0 0;}
+.icon2::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}
+.icon3::before {content: url(/images/icons/listen.png) " "; padding:0px 20px 0 0;}
+.icon4::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}
+.icon5::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}
+.icon6::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}
+.icon li:nth-child(7)::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}
+.icon li:nth-child(8)::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}
+.icon li:nth-child(9)::before {content: url(/images/icons/abonnements.png) " "; padding:0px 20px 0 0;}

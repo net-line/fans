@@ -13,17 +13,17 @@ return (
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
         <Link className={classes.leftmenue} to="/">
-          <li>
+          <li className={classes.icon1}>
             <span className="d-none d-md-block">Home</span>
           </li>
         </Link>
         <Link className={classes.leftmenue} to="/favs">
-          <li>
+          <li className={classes.icon2}>
             <span className="d-none d-md-block">Favoriten</span>
           </li>
         </Link>
         <Link className={classes.leftmenue} to="/models">
-          <li>
+          <li className={classes.icon3}>
             <span className="d-none d-md-block">Girls</span>
           </li>
         </Link>
