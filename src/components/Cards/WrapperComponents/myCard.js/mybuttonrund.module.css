@@ -21,11 +21,6 @@
  color: #eeeeee;
 }
 
-.btn span {
-  position: relative; 
-  z-index: 1;
-}
-
-.btn span a {
+.btn a {
 text-decoration: none;
 }
