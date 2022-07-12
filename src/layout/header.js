@@ -14,15 +14,8 @@ const Header = () => {
         </Link>
       </div>
       <div className={classes.navlinks}>
-        <Link to="/models">
-          <h5>Models</h5>
-        </Link>
-        <Link to="/privacy">
-          <h5>Datenschutz</h5>
-        </Link>
-        <Link to="/agb">
-          <h5>AGB</h5>
-        </Link>
+        
+       
         
       </div>
     </header>

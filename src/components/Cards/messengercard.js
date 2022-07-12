@@ -21,7 +21,7 @@ const Messengercard=(props)=>{
   } 
   useEffect(()=>{
 
-    fetchMessagesHandler()
+   // fetchMessagesHandler()
    
   },[]);
  

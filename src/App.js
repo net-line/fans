@@ -4,13 +4,14 @@ import React, { Fragment } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from './layout/footer';
 import Models from './pages/models';
-import Header from "./layout/header";
+
 import {Route, Routes } from "react-router-dom";
 import Privacy from './pages/privacy';
 import AGB from './pages/agb';
 import Mainpage from "./layout/mainpage";
 import Detailsite from './pages/detail';
 import Favgirls from './components/lists/favgirls';
+
 
 function App() {
 
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <Fragment>
-      <Header />
+     
       <Routes>
         <Route
           exact

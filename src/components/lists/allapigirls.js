@@ -1,40 +1,47 @@
 import React from "react";
 
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import useMyHttp from "../../hooks/myhttp";
+import Modeladvertorial from "../Cards/modeladvertorial";
 
 const AllApiGirls = () => {
-  const [hideme, setHideme] = useState(true);
+  
 
   const { isLoading, data, error, sendRequest, clear } = useMyHttp();
   function fetchGirlsHandler() {
     //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
-    sendRequest(`https://api.deine.fans/api/girls`, "GET");
+    sendRequest("https://api.deine.fans/api/girls", "GET");
     console.log(isLoading);
     console.log(data);
     console.log(error);
     console.log(clear);
-    setHideme(!hideme);
+    
   }
   useEffect(() => {
     fetchGirlsHandler();
   }, []);
   return (
     <div>
-      <div onClick={fetchGirlsHandler}>
-        <button>Alle Girls:</button>
-      </div>
-      {hideme && (
-        <div>
-          {data &&
-            data.girls &&
-            data.girls.map((girls) => <h5 key={girls.id}>{girls.pseudo} </h5>)}
-          {isLoading && <h5>Lade Daten</h5>}
-          {data && !data.girls && !isLoading && <h5>No Data</h5>}
+      <div>
+        {data &&
+          data.girls &&
+          data.girls.map((girl) => (
+            <Modeladvertorial
+              name={girl.pseudo}
+              image={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${girl.steckbrief1ImageID}.webp`}
+              secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${girl.previewImageIDSoft}.webp`}
+              age={girl.age}
+              numberofitems="2"
+              key={girl.pseudo}
+              isFav="false"
+              id={girl.producerID}
+              mymotto={`Meine Haarfarbe ist ${girl.hairColor} und ich habe ${girl.cupSize} Oberweite`}
+            />
+          ))}
+        {isLoading && <h5>Lade Daten</h5>}
 
-          {error && <p>{error}</p>}
-        </div>
-      )}
+        {error && <p>{error}</p>}
+      </div>
     </div>
   );
 };
