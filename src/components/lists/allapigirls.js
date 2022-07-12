@@ -28,7 +28,7 @@ const AllApiGirls = () => {
           data.girls.map((girl) => (
             <Modeladvertorial
               name={girl.pseudo}
-              image={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${girl.steckbrief1ImageID}.webp`}
+              image={`https://d2cq08zcv5hf9g.cloudfront.net/480x360/${girl.steckbrief1ImageID}.webp`}
               secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${girl.previewImageIDSoft}.webp`}
               age={girl.age}
               numberofitems="2"

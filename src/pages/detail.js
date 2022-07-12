@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {useParams} from "react-router-dom";
-import Messengercard from "../components/Cards/messengercard";
-import Modeladvertorial from "../components/Cards/modeladvertorial";
-import Allpostes from "../components/lists/allposts";
+//import Messengercard from "../components/Cards/messengercard";
+//import Modeladvertorial from "../components/Cards/modeladvertorial";
+//import Allpostes from "../components/lists/allposts";
 import { useStore } from "../components/store-hooks/store";
+import useMyHttp from "../hooks/myhttp";
+
+
 
 const Detailsite=(props)=>{
 
@@ -12,34 +15,44 @@ const mygirl =params.girlId
 
 const girls=useStore()[0];
  //const dispatch = useStore()[1];
-console.log(girls)
-const db = Array.from(girls.postings);
-const girl = db.find(el => el.pseudo===mygirl)
+console.log(girls, mygirl)
 
-//const test = dispatch('FETCH_DATA',mygirl);
-//console.log(test)
+
+ const { isLoading, data, error, sendRequest, clear } = useMyHttp();
+ function fetchGirlsHandler() {
+   //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
+   sendRequest(
+     `https://api.deine.fans/api/girls/2c3ba18535b740328d6cb7c6cb89599e`,
+     "GET"
+   );
+   console.log(isLoading);
+   console.log(data);
+   console.log(error);
+   console.log(clear);
+ }
+ useEffect(() => {
+   fetchGirlsHandler();
+ }, []);
 
     return (
       <div>
-        {!girl && <h1>No data</h1>}
-        {girl && (
+       {/*  {!data && !data.girl && <h1>No data</h1>}
+        {data && data.girl && (
           <div>
             <Modeladvertorial
-              name={girl.pseudo}
-              image={girl.profilepic}
-              secondimage={girl.secondarypic}
-              age={girl.age}
-              numberofitems={girl.posts.length}
-              key={girl.pseudo}
-              isFav={girl.isFav}
-              id={girl.id}
-              mymotto={girl.mymotto}
+              name={data.girl.pseudo}
+              image={`https://d2cq08zcv5hf9g.cloudfront.net/480x360/${data.girl.steckbrief1ImageID}.webp`}
+              secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${data.previewImageIDSoft}.webp`}
+              age={data.girl.age}
+              numberofitems="2"
+              key={data.girl.pseudo}
+              isFav="false"
+              id={data.girl.producerID}
+              mymotto={`Meine Haarfarbe ist ${data.girl.hairColor} und ich habe ${data.girl.cupSize} Oberweite`}
             />
-            <Messengercard id={girl.id} />
-
-            <Allpostes girl={girl} />
+           
           </div>
-        )}
+        )} */}
       </div>
     );
 };
