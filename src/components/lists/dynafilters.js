@@ -9,22 +9,24 @@ const DynaFilters = () => {
 return (
   <Fragment>
     <Header />
-    <ul>
-      <Link to="/favs">
-        <h5>Favoriten</h5>
-      </Link>
-      <Link to="/models">
-        <h5>Models</h5>
-      </Link>
-    </ul>
 
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
-          <Link className={classes.leftmenue} to="/">
-          <li>Home</li>
-          </Link>
-       
-        <li>Benachrichtigung</li>
+        <Link className={classes.leftmenue} to="/">
+          <li>
+            <span className="d-none d-md-block">Home</span>
+          </li>
+        </Link>
+        <Link className={classes.leftmenue} to="/favs">
+          <li>
+            <span className="d-none d-md-block">Favoriten</span>
+          </li>
+        </Link>
+        <Link className={classes.leftmenue} to="/models">
+          <li>
+            <span className="d-none d-md-block">Girls</span>
+          </li>
+        </Link>
       </ul>
     </div>
   </Fragment>

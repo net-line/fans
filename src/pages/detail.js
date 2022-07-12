@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import {useParams} from "react-router-dom";
 //import Messengercard from "../components/Cards/messengercard";
-//import Modeladvertorial from "../components/Cards/modeladvertorial";
+import Modeladvertorial from "../components/Cards/modeladvertorial";
 //import Allpostes from "../components/lists/allposts";
 import { useStore } from "../components/store-hooks/store";
 import useMyHttp from "../hooks/myhttp";
@@ -21,10 +21,7 @@ console.log(girls, mygirl)
  const { isLoading, data, error, sendRequest, clear } = useMyHttp();
  function fetchGirlsHandler() {
    //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
-   sendRequest(
-     `https://api.deine.fans/api/girls/2c3ba18535b740328d6cb7c6cb89599e`,
-     "GET"
-   );
+   sendRequest(`https://api.deine.fans/api/girls/${props.id}`, "GET");
    console.log(isLoading);
    console.log(data);
    console.log(error);
@@ -36,13 +33,15 @@ console.log(girls, mygirl)
 
     return (
       <div>
-       {/*  {!data && !data.girl && <h1>No data</h1>}
-        {data && data.girl && (
+        
+        {isLoading && <p>Lädt noch</p>}
+        
+        {!isLoading && data && data.girl && (
           <div>
             <Modeladvertorial
               name={data.girl.pseudo}
               image={`https://d2cq08zcv5hf9g.cloudfront.net/480x360/${data.girl.steckbrief1ImageID}.webp`}
-              secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${data.previewImageIDSoft}.webp`}
+              secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${data.girl.previewImageID}.webp`}
               age={data.girl.age}
               numberofitems="2"
               key={data.girl.pseudo}
@@ -50,9 +49,8 @@ console.log(girls, mygirl)
               id={data.girl.producerID}
               mymotto={`Meine Haarfarbe ist ${data.girl.hairColor} und ich habe ${data.girl.cupSize} Oberweite`}
             />
-           
           </div>
-        )} */}
+        )}
       </div>
     );
 };

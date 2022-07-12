@@ -1,7 +1,8 @@
 import React from "react";
 import {Col, Row} from "reactstrap";
+import AllApiShort from "../components/lists/allapishort";
 
-import Allgirls from "../components/lists/allgirls";
+
 import DynaFilters from "../components/lists/dynafilters";
 //import MiddleElement from "./middleelement";
 import classes from "./mainpage.module.css"
@@ -24,7 +25,7 @@ const Mainpage=(props)=>{
             {props.children}
           </Col>
           <Col className="bg-light border d-none d-lg-block" xs="12" lg="3">
-            <Allgirls />
+            <AllApiShort />
           </Col>
         </Row>
       </div>
