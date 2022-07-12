@@ -21,8 +21,7 @@ useEffect(() => {
 
     return (
       <div>
-        <button onClick={fetchGirlsHandler}>Click</button>
-        {!isLoading && data && data.images && <p>{data.images[0].imageID}</p>}
+      
         {!isLoading &&
           data &&
           data.images &&
