@@ -3,6 +3,7 @@ import classes from "./modeladvertorial.module.css";
 import { useStore } from "../store-hooks/store";
 import { Link } from "react-router-dom";
 import Messengercard from "./messengercard";
+import MyButtonRund from "./WrapperComponents/myCard.js/myButtonRund";
 
 
 const Modeladvertorial = React.memo(props =>{
@@ -51,7 +52,7 @@ console.log("renders")
             </button>
 
             <Link to={`/${modelname}`}>
-              <h5>Jetzt abonieren</h5>
+              <MyButtonRund>Jetzt abonieren</MyButtonRund>
             </Link>
           </div>
         </div>
