@@ -1,7 +1,10 @@
 .pad{
     padding:1%;
 }
-
+.padshort{
+   padding:1%;
+    margin:1%;
+}
 .userinfo {
  
   background-color: #fff;

@@ -12,7 +12,7 @@ const Shortadvertorial = React.memo((props) => {
  
 
   return (
-    <div className={classes.pad}>
+    <div className={classes.padshort}>
       <div className={classes.userinfo}>
        
         <div className={classes.userinfoheadershort}>
