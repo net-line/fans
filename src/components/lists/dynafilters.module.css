@@ -12,6 +12,7 @@
   font-size: 1.25em;
   padding: 5px;
   border-radius:15px;
+  transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
 }
 
@@ -25,6 +26,7 @@
   text-decoration:none;
   display:block;
   width:100%;
+  transition: all 0.25s linear;
   -webkit-transition: all 0.25s linear;
 }  
  
