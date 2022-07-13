@@ -64,10 +64,11 @@ return (
             </li>
           </Link>
         )}
-        {isLoggedIn && isPremium && (
-          <Link className={classes.leftmenue} to="/profile/managecard">
+
+        {isLoggedIn && (
+          <Link className={classes.leftmenue} to="/profile">
             <li className={classes.icon3}>
-              <span className="d-none d-md-block">Kreditkarte bearbeiten</span>
+              <span className="d-none d-md-block">Dein Profil</span>
             </li>
           </Link>
         )}
@@ -90,6 +91,11 @@ return (
         <Link className={classes.leftmenue} to="/collection">
           <li className={classes.icon3}>
             <span className="d-none d-md-block">Collection</span>
+          </li>
+        </Link>
+        <Link className={classes.leftmenue} to="/login">
+          <li className={classes.icon3}>
+            <span className="d-none d-md-block">Werde Creator</span>
           </li>
         </Link>
       </ul>
