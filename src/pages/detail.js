@@ -46,15 +46,17 @@ const  test  = location.state;
         {!isLoading && data && data.girl && (
           <div>
             <Modeladvertorial
-              name={data.girl.pseudo}
-              image={`https://d2cq08zcv5hf9g.cloudfront.net/480x360/${data.girl.steckbrief1ImageID}.webp`}
-              secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${data.girl.previewImageID}.webp`}
-              age={data.girl.age}
+              name={girl.pseudo}
+              image={girl.steckbrief1ImageIDURLS.urlMedium}
+              secondimage={girl.previewImageIDURLS.urlSmall}
+              age={girl.age}
               numberofitems="2"
-              key={data.girl.pseudo}
+              key={girl.pseudo}
               isFav="false"
-              id={data.girl.producerID}
-              mymotto={`Meine Haarfarbe ist ${data.girl.hairColor} und ich habe ${data.girl.cupSize} Oberweite`}
+              id={girl.producerID}
+              mymotto={girl.steckbriefText}
+              hashtag={girl.hashTags}
+             
             />
             {!isPremium && (
               <div>
@@ -68,8 +70,7 @@ const  test  = location.state;
               </div>
             )}
             {isPremium && <Allpostes girl={data.girl} />}
-            <SinglePost girl={data.girl}/>
-        
+            <SinglePost girl={data.girl} />
           </div>
         )}
       </div>
