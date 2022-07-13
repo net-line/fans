@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
 import AllApiGirls from "../../components/lists/allapigirls";
-import { useLocation} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import classes from "./models.module.css";
 
 
 
 const Models=(props)=>{
-
+ const navigate = useNavigate();
   const location = useLocation();
   
   const [hasEntered,setHasEntered] = useState(null);
@@ -26,22 +26,20 @@ const questionref = useRef();
     event.preventDefault();
     const enteredvalue = "#"+questionref.current.value;
     setHasEntered(enteredvalue);
+    navigate(`/models/${questionref.current.value}`);
+    
    }
  
 return (
   <div>
     <form onSubmit={submitHandler}>
       <div className={classes.control}>
-        <label htmlFor="text">Wonach suchst Du?</label>
+        <label htmlFor="text">Suche nach Tags: </label>
         <input type="text" id="suchtext" required ref={questionref} />
       </div>
     </form>
-    {hasEntered&&(
-      <div>
-    <h5>Du suchst nach {hasEntered}</h5>
-     <AllApiGirls hashtagged={hasEntered}/>
-    </div>
-    )}
+    
+    
     {!hasEntered&&<AllApiGirls />}
   </div>
 );

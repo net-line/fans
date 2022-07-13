@@ -32,7 +32,7 @@ const [showmoretags, setshowmoretags] = useState(false);
             {!showmoretags && (
               <div className={classes.tag}>
                 {props.hashtag[0] && (
-                  <Link to="/models" state={{ test: props.hashtag[0] }}>
+                  <Link to={`/models/${props.hashtag[0].replace("#", "")}`}>
                     <span className={classes.tagcolor1}>
                       {props.hashtag[0]}
                     </span>
@@ -41,7 +41,7 @@ const [showmoretags, setshowmoretags] = useState(false);
                 <span> </span>
 
                 {props.hashtag[1] && (
-                  <Link to="/models" state={{ test: props.hashtag[1] }}>
+                  <Link to={`/models/${props.hashtag[1].replace("#", "")}`}>
                     <span className={classes.tagcolor2}>
                       {props.hashtag[1]}
                     </span>
@@ -49,7 +49,7 @@ const [showmoretags, setshowmoretags] = useState(false);
                 )}
                 <span> </span>
                 {props.hashtag[2] && (
-                  <Link to="/models" state={{ test: props.hashtag[2] }}>
+                  <Link to={`/models/${props.hashtag[2].replace("#", "")}`}>
                     <span className={classes.tagcolor3}>
                       {props.hashtag[2]}
                     </span>
@@ -62,7 +62,7 @@ const [showmoretags, setshowmoretags] = useState(false);
               <div className={classes.tag}>
                 {props.hashtag.map((hashtag) => (
                   <div key={hashtag}>
-                    <Link to="/models" state={{ test: hashtag }}>
+                    <Link to={`/models/${hashtag.replace("#", "")}`}>
                       <span className={classes.tagcolor1}>{hashtag}</span>
                     </Link>
                     <span> </span>

@@ -16,6 +16,7 @@ import Collection from './pages/collection';
 import AddCard from './pages/addcard';
 import Profile from './pages/profile';
 import ManageCard from './pages/profile/managecard';
+import FilteredApiGirls from './components/lists/filteredapigirls';
 
 
 
@@ -37,9 +38,18 @@ function App() {
         />
         <Route
           path="/models"
+          strict
           element={
             <Mainpage>
               <Models />
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/models/:filterID"
+          element={
+            <Mainpage>
+             <FilteredApiGirls />
             </Mainpage>
           }
         />

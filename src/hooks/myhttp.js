@@ -46,7 +46,9 @@ const useMyHttp = () => {
         },
       })
         .then((response) => {
+           console.log(response.json);
           return response.json();
+         
         })
         .then((responseData) => {
           dispatchHttp({
@@ -55,10 +57,10 @@ const useMyHttp = () => {
             extra: reqExtra,
           });
         })
-        .catch((error) => {
+        .catch((err) => {
           dispatchHttp({
             type: "ERROR",
-            errorMessage: "Something went wrong!",
+            errorMessage: "Fehler",
           });
         });
     },

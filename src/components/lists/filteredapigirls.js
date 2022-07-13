@@ -1,22 +1,24 @@
 import React from "react";
 
-import { useEffect} from "react";
+import { useEffect } from "react";
 import useMyHttp from "../../hooks/myhttp";
 import Modeladvertorial from "../Cards/modeladvertorial";
+import { useParams } from "react-router-dom";
 
-const AllApiGirls = (props) => {
- 
-  
+const FilteredApiGirls = (props) => {
 
-  const { isLoading, data,error,sendRequest} = useMyHttp();
+const params=useParams()
+console.log(params.filterID)
+
+  const { isLoading, data, error, sendRequest } = useMyHttp();
   function fetchGirlsHandler() {
     //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
-    sendRequest("https://api.deine.fans/api/girls", "GET");
     
-    
+    sendRequest(`https://api.deine.fans/api/girls/query/%23${params.filterID}`);
   }
   useEffect(() => {
     fetchGirlsHandler();
+    window.scrollTo(0, 0);
   }, []);
   return (
     <div>
@@ -24,7 +26,6 @@ const AllApiGirls = (props) => {
         {data &&
           data.girls &&
           data.girls.map((girl) => (
-            
             <Modeladvertorial
               name={girl.pseudo}
               image={girl.steckbrief1ImageIDURLS.urlMedium}
@@ -46,4 +47,4 @@ const AllApiGirls = (props) => {
   );
 };
 
-export default AllApiGirls;
+export default FilteredApiGirls;
