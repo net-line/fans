@@ -40,7 +40,7 @@ return (
     {hasEntered&&(
       <div>
     <h5>Du suchst nach {hasEntered}</h5>
-    <AllApiGirls search={hasEntered}/>
+     <AllApiGirls search={hasEntered}/>
     </div>
     )}
     {!hasEntered&&<AllApiGirls />}

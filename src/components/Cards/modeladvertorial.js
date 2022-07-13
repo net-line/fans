@@ -33,11 +33,15 @@ console.log(props)
               )}
               <span> </span>
               {props.hashtag[1] && (
-                <span className={classes.tagcolor2}>{props.hashtag[1]}</span>
+                <Link to="/models" state={{ test: props.hashtag[1] }}>
+                  <span className={classes.tagcolor2}>{props.hashtag[1]}</span>
+                </Link>
               )}
               <span> </span>
               {props.hashtag[2] && (
+                <Link to="/models" state={{ test: props.hashtag[2] }}>
                 <span className={classes.tagcolor3}>{props.hashtag[2]}</span>
+                </Link>
               )}
             </div>
 
