@@ -46,17 +46,17 @@ const  test  = location.state;
         {!isLoading && data && data.girl && (
           <div>
             <Modeladvertorial
-              name={girl.pseudo}
-              image={girl.steckbrief1ImageIDURLS.urlMedium}
-              secondimage={girl.previewImageIDURLS.urlSmall}
-              age={girl.age}
+              name={data.girl.pseudo}
+              image={data.girl.steckbrief1ImageIDURLS.urlMedium}
+              secondimage={data.girl.previewImageIDURLS.urlSmall}
+              age={data.girl.age}
               numberofitems="2"
-              key={girl.pseudo}
+              key={data.girl.pseudo}
               isFav="false"
-              id={girl.producerID}
-              mymotto={girl.steckbriefText}
-              hashtag={girl.hashTags}
-             
+              id={data.girl.producerID}
+              mymotto={data.girl.steckbriefText}
+              hashtag={data.girl.hashTags}
+            
             />
             {!isPremium && (
               <div>
