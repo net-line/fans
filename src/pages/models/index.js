@@ -8,17 +8,15 @@ import classes from "./models.module.css";
 const Models=(props)=>{
 
   const location = useLocation();
-  const test = location.state.test
-
-
+  
   const [hasEntered,setHasEntered] = useState(null);
-
+  console.log(location)
   useEffect(() => {
-    if (test) {
-      setHasEntered(test);
-      window.scrollTo(0, 0);
+    if (location.state !== null) {
+      setHasEntered(location.state.test);
     }
-  }, [test]);
+    window.scrollTo(0, 0);
+  }, [location.state]);
   
 
 const questionref = useRef();
