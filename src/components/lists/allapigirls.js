@@ -12,7 +12,7 @@ const AllApiGirls = (props) => {
       var thing=props.hashtagged
       
       setIsItFiltered(thing)
-    console.log("Got Filtered", props);
+   
     fetchGirlsHandler();
     }
     
@@ -23,14 +23,14 @@ const AllApiGirls = (props) => {
   function fetchGirlsHandler() {
 
     if(isItFiltered){
-                    console.log(data, "wir sind in Zeile 27")
+                    
                       //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
                       //sendRequest(`https://api.deine.fans/api/girls/query/%23blond`, "GET");
                      var mynewdata= data.girls.filter((o) => 
                      o.hashTags.includes(isItFiltered)
                      )
                      setNewdata(mynewdata);
-                     console.log("newdata", mynewdata)
+                    
                     }else{
                             //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
                             sendRequest(

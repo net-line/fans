@@ -10,7 +10,7 @@ const Models=(props)=>{
   const location = useLocation();
   
   const [hasEntered,setHasEntered] = useState(null);
-  console.log(location)
+ 
   useEffect(() => {
     setHasEntered(null);
     if (location.state !== null) {
@@ -24,7 +24,7 @@ const questionref = useRef();
 
    function submitHandler(event){
     event.preventDefault();
-    const enteredvalue = questionref.current.value;
+    const enteredvalue = "#"+questionref.current.value;
     setHasEntered(enteredvalue);
    }
  

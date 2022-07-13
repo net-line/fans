@@ -18,7 +18,7 @@ const [showmoretags, setshowmoretags] = useState(false);
   function showmemoretags() {
     setshowmoretags(true);
   };
-console.log(props)
+
     return (
       <div className={classes.pad}>
         <div className={classes.userinfo}>
