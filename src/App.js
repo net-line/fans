@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Fragment } from 'react';
+import React, { Fragment} from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import Footer from './layout/footer';
@@ -15,8 +15,8 @@ import Login from './pages/login';
 import Collection from './pages/collection';
 
 
-function App() {
 
+function App() {
 
 
 

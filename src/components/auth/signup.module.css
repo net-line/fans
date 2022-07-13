@@ -47,15 +47,15 @@
     cursor: pointer;
     font: inherit;
     color: white;
-    background-color: #C83232;
-    border: 1px solid #C83232;
+    background-color: #c76969;
+    border: 1px solid #c76969;
     border-radius: 4px;
     padding: 0.5rem 2.5rem;
   }
   
   .actions button:hover {
-    background-color: #C83232;
-    border-color: #C83232;
+    background-color: #793f3f;
+    border-color: #793f3f;
   }
   
   .actions .toggle {
