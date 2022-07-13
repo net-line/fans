@@ -7,14 +7,11 @@ import Modeladvertorial from "../Cards/modeladvertorial";
 const AllApiGirls = () => {
   
 
-  const { isLoading, data, error, sendRequest, clear } = useMyHttp();
+  const { isLoading, data,error,sendRequest} = useMyHttp();
   function fetchGirlsHandler() {
     //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
     sendRequest("https://api.deine.fans/api/girls", "GET");
-    console.log(isLoading);
-    console.log(data);
-    console.log(error);
-    console.log(clear);
+    
     
   }
   useEffect(() => {
@@ -28,14 +25,15 @@ const AllApiGirls = () => {
           data.girls.map((girl) => (
             <Modeladvertorial
               name={girl.pseudo}
-              image={`https://d2cq08zcv5hf9g.cloudfront.net/480x360/${girl.steckbrief1ImageID}.webp`}
-              secondimage={`https://d2cq08zcv5hf9g.cloudfront.net/240x180/${girl.previewImageIDSoft}.webp`}
+              image={girl.steckbrief1ImageIDURLS.urlMedium}
+              secondimage={girl.previewImageIDURLS.urlSmall}
               age={girl.age}
               numberofitems="2"
               key={girl.pseudo}
               isFav="false"
               id={girl.producerID}
-              mymotto={`Meine Haarfarbe ist ${girl.hairColor} und ich habe ${girl.cupSize} Oberweite`}
+              mymotto={girl.steckbriefText}
+              hashtag={girl.hashTags}
             />
           ))}
         {isLoading && <h5>Lade Daten</h5>}

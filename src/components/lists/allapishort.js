@@ -6,14 +6,11 @@ import useMyHttp from "../../hooks/myhttp";
 import Shortadvertorial from "../Cards/shortadvertorial";
 
 const AllApiShort = () => {
-  const { isLoading, data, error, sendRequest, clear } = useMyHttp();
+  const { isLoading, data, error, sendRequest } = useMyHttp();
   function fetchGirlsHandler() {
     //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
     sendRequest("https://api.deine.fans/api/girls", "GET");
-    console.log(isLoading);
-    console.log(data);
-    console.log(error);
-    console.log(clear);
+ 
   }
   useEffect(() => {
     fetchGirlsHandler();

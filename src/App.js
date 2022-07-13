@@ -13,6 +13,9 @@ import Detailsite from './pages/detail';
 import Favgirls from './components/lists/favgirls';
 import Login from './pages/login';
 import Collection from './pages/collection';
+import AddCard from './pages/addcard';
+import Profile from './pages/profile';
+import ManageCard from './pages/profile/managecard';
 
 
 
@@ -37,6 +40,31 @@ function App() {
           element={
             <Mainpage>
               <Models />
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/addcard"
+          element={
+            <Mainpage>
+              <AddCard />
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/profile"
+          exact
+          element={
+            <Mainpage>
+              <Profile />
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/profile/managecard"
+          element={
+            <Mainpage>
+              <ManageCard />
             </Mainpage>
           }
         />

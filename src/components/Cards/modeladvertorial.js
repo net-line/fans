@@ -9,12 +9,12 @@ import MyButtonRund from "./WrapperComponents/myCard.js/myButtonRund";
 const Modeladvertorial = React.memo(props =>{
     const dispatch = useStore(false)[1];
     const modelname=props.name;
-console.log("renders")
+
   const toggleFavHandler=() =>{
     dispatch('TOGGLE_FAV', props.id)
-    console.log(props)
+  
   }
-
+console.log(props)
     return (
       <div className={classes.pad}>
         <div className={classes.userinfo}>
@@ -26,9 +26,17 @@ console.log("renders")
           </div>
           <div className={classes.userinfobody}>
             <div className={classes.tag}>
-              <span className={classes.tagcolor1}>#HEISSKOCHEN </span>
-              <span className={classes.tagcolor2}>#OHNE WASSER </span>
-              <span className={classes.tagcolor3}>#UNMÖGLICH</span>
+              {props.hashtag[0] && (
+                <span className={classes.tagcolor1}>{props.hashtag[0]}</span>
+              )}
+              <span> </span>
+              {props.hashtag[1] && (
+                <span className={classes.tagcolor2}>{props.hashtag[1]}</span>
+              )}
+              <span> </span>
+              {props.hashtag[2] && (
+                <span className={classes.tagcolor3}>{props.hashtag[2]}</span>
+              )}
             </div>
 
             <h4>
@@ -42,13 +50,19 @@ console.log("renders")
                 <Link to={`/${modelname}`}> {props.numberofitems} Posts</Link>
               </li>
             </ul>
-          <Messengercard id={props.id}/>
+            <Messengercard id={props.id} />
             <button
-              className={!props.isFav ? `button-outline ${classes.btn}` : `${classes.btn}`}
+              className={
+                !props.isFav
+                  ? `button-outline ${classes.btn}`
+                  : `${classes.btn}`
+              }
               //Nicht vergessen, btn-Style mit MyButton Style synchronisieren
               onClick={toggleFavHandler}
             >
-              {props.isFav ? "Von Favoriten entfernen" : "Zu Favoriten hinzufügen"}
+              {props.isFav
+                ? "Von Favoriten entfernen"
+                : "Zu Favoriten hinzufügen"}
             </button>
 
             <Link to={`/${modelname}`}>
