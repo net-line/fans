@@ -19,7 +19,16 @@ function logmeoutfast() {
 return (
   <div className={classes.outlinegone}>
     <Header />
-
+    {!isLoggedIn && (
+      <div onClick={logmeinfast}>
+        <MyButton>Quicklogin</MyButton>
+      </div>
+    )}
+    {isLoggedIn && (
+      <div onClick={logmeoutfast}>
+        <MyButton>Logout</MyButton>
+      </div>
+    )}
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
         <Link className={classes.leftmenue} to="/">
@@ -44,16 +53,7 @@ return (
             </li>
           </Link>
         )}
-        {!isLoggedIn && (
-          <div onClick={logmeinfast}>
-            <MyButton>Quicklogin</MyButton>
-          </div>
-        )}
-        {isLoggedIn && (
-          <div onClick={logmeoutfast}>
-            <MyButton>Logout</MyButton>
-          </div>
-        )}
+
         <Link className={classes.leftmenue} to="/collection">
           <li className={classes.icon3}>
             <span className="d-none d-md-block">Collection</span>
