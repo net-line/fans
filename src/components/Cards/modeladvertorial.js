@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./modeladvertorial.module.css";
 import { useStore } from "../store-hooks/store";
 import { Link } from "react-router-dom";
@@ -9,11 +9,15 @@ import MyButtonRund from "./WrapperComponents/myCard.js/myButtonRund";
 const Modeladvertorial = React.memo(props =>{
     const dispatch = useStore(false)[1];
     const modelname=props.name;
-
+const [showmoretags, setshowmoretags] = useState(false);
   const toggleFavHandler=() =>{
     dispatch('TOGGLE_FAV', props.id)
   
   }
+
+  function showmemoretags() {
+    setshowmoretags(true);
+  };
 console.log(props)
     return (
       <div className={classes.pad}>
@@ -25,25 +29,47 @@ console.log(props)
             <img src={props.image} alt={modelname} />
           </div>
           <div className={classes.userinfobody}>
-            <div className={classes.tag}>
-              {props.hashtag[0] && (
-                <Link to="/models" state={{ test: props.hashtag[0] }}>
-                  <span className={classes.tagcolor1}>{props.hashtag[0]}</span>
-                </Link>
-              )}
-              <span> </span>
-              {props.hashtag[1] && (
-                <Link to="/models" state={{ test: props.hashtag[1] }}>
-                  <span className={classes.tagcolor2}>{props.hashtag[1]}</span>
-                </Link>
-              )}
-              <span> </span>
-              {props.hashtag[2] && (
-                <Link to="/models" state={{ test: props.hashtag[2] }}>
-                <span className={classes.tagcolor3}>{props.hashtag[2]}</span>
-                </Link>
-              )}
-            </div>
+            {!showmoretags && (
+              <div className={classes.tag}>
+                {props.hashtag[0] && (
+                  <Link to="/models" state={{ test: props.hashtag[0] }}>
+                    <span className={classes.tagcolor1}>
+                      {props.hashtag[0]}
+                    </span>
+                  </Link>
+                )}
+                <span> </span>
+
+                {props.hashtag[1] && (
+                  <Link to="/models" state={{ test: props.hashtag[1] }}>
+                    <span className={classes.tagcolor2}>
+                      {props.hashtag[1]}
+                    </span>
+                  </Link>
+                )}
+                <span> </span>
+                {props.hashtag[2] && (
+                  <Link to="/models" state={{ test: props.hashtag[2] }}>
+                    <span className={classes.tagcolor3}>
+                      {props.hashtag[2]}
+                    </span>
+                  </Link>
+                )}
+                {props.hashtag[3] && <h5 onClick={showmemoretags}>+</h5>}
+              </div>
+            )}
+            {showmoretags && (
+              <div className={classes.tag}>
+                {props.hashtag.map((hashtag) => (
+                  <div key={hashtag}>
+                    <Link to="/models" state={{ test: hashtag }}>
+                      <span className={classes.tagcolor1}>{hashtag}</span>
+                    </Link>
+                    <span> </span>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <h4>
               {modelname}

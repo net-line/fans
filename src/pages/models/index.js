@@ -12,6 +12,7 @@ const Models=(props)=>{
   const [hasEntered,setHasEntered] = useState(null);
   console.log(location)
   useEffect(() => {
+    setHasEntered(null);
     if (location.state !== null) {
       setHasEntered(location.state.test);
     }
@@ -38,7 +39,7 @@ return (
     {hasEntered&&(
       <div>
     <h5>Du suchst nach {hasEntered}</h5>
-     <AllApiGirls search={hasEntered}/>
+     <AllApiGirls hashtagged={hasEntered}/>
     </div>
     )}
     {!hasEntered&&<AllApiGirls />}

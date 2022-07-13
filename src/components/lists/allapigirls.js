@@ -1,26 +1,79 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { useEffect} from "react";
 import useMyHttp from "../../hooks/myhttp";
 import Modeladvertorial from "../Cards/modeladvertorial";
 
-const AllApiGirls = () => {
-  
+const AllApiGirls = (props) => {
+  const [isItFiltered, setIsItFiltered] = useState("")
 
-  const { isLoading, data,error,sendRequest} = useMyHttp();
-  function fetchGirlsHandler() {
-    //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
-    sendRequest("https://api.deine.fans/api/girls", "GET");
+  useEffect(()=>{
+    if(props.hashtagged){
+      var thing=props.hashtagged
+      
+      setIsItFiltered(thing)
+    console.log("Got Filtered", props);
+    fetchGirlsHandler();
+    }
     
+  },[props])
+  
+  const [newdata, setNewdata] = useState(false)
+  let { isLoading, data,error,sendRequest} = useMyHttp();
+  function fetchGirlsHandler() {
+
+    if(isItFiltered){
+                    console.log(data, "wir sind in Zeile 27")
+                      //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
+                      //sendRequest(`https://api.deine.fans/api/girls/query/%23blond`, "GET");
+                     var mynewdata= data.girls.filter((o) => 
+                     o.hashTags.includes(isItFiltered)
+                     )
+                     setNewdata(mynewdata);
+                     console.log("newdata", mynewdata)
+                    }else{
+                            //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
+                            sendRequest(
+                              "https://api.deine.fans/api/girls",
+                              "GET"
+                            );
+                          }
+   
     
   }
+  useEffect(() => {
+    if(props.hashtagged){
+      setIsItFiltered(props.hashtagged);
+     fetchGirlsHandler();
+    }   
+  }, [data]);
+
   useEffect(() => {
     fetchGirlsHandler();
   }, []);
   return (
     <div>
       <div>
-        {data &&
+        {isItFiltered && <h1>{isItFiltered}</h1>}
+        {isItFiltered &&
+          newdata &&
+          data.girls &&
+          newdata.map((girl) => (
+            <Modeladvertorial
+              name={girl.pseudo}
+              image={girl.steckbrief1ImageIDURLS.urlMedium}
+              secondimage={girl.previewImageIDURLS.urlSmall}
+              age={girl.age}
+              numberofitems="2"
+              key={girl.pseudo}
+              isFav="false"
+              id={girl.producerID}
+              mymotto={girl.steckbriefText}
+              hashtag={girl.hashTags}
+            />
+          ))}
+        {!isItFiltered &&
+          data &&
           data.girls &&
           data.girls.map((girl) => (
             <Modeladvertorial
