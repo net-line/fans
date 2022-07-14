@@ -7,6 +7,8 @@ function AuthForm() {
 
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const password2InputRef = useRef();
+  const pseudoInputRef =useRef();
  // const nickInputRef = useRef();
  const authctx = useContext(AuthContext);
 
@@ -22,7 +24,8 @@ function AuthForm() {
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-   
+     const enteredPassword2 = password2InputRef.current.value;
+    const enteredPseudo = pseudoInputRef.current.value;
     //add validation
     if(isLogin){
       fetch(`https://api.deine.fans/api/userlogin?pseudo=${enteredEmail}&password=${passwordInputRef}`)
@@ -30,6 +33,7 @@ function AuthForm() {
         console.log(res)
       if(res.ok){
        authctx.login("DUMMYTOKEN")
+       console.log(res)
         return res.json()
       }else{
         throw new Error("Fehler")
@@ -39,26 +43,27 @@ function AuthForm() {
     })
     }else{
       //Send POST um User anzulegen
-      /* fetch(url,{
-        method: 'POST',
+      fetch("https://api.deine.fans/api/userlogin", {
+        method: "PUT",
         body: JSON.stringify({
-          email:enteredEmail,
-          password:enteredPassword,
-          returnsecureToken:true
+          pseudo: enteredPseudo,
+          password: enteredPassword,
+          passwordrepeat: enteredPassword2,
+          email: enteredEmail
         }),
-        headers:{
-          'Content-Type':'application/json'
-        }
-      }).then(res =>{
-        if (res.ok){
-
-        }else{
-          res.json().then(data =>{
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => {
+        if (res.ok) {
+          console.log(res);
+        } else {
+          res.json().then((data) => {
             //FehlerAnzeige
             console.log(data);
-          })
+          });
         }
-      }); */
+      });
       console.log(enteredEmail, enteredPassword);
     }
    
@@ -66,16 +71,18 @@ function AuthForm() {
 
   return (
     <section className={classes.auth}>
-       
-      
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
+          <label htmlFor="text">Dein Username</label>
+          <input type="text" id="text" required ref={pseudoInputRef} />
+        </div>
+        {!isLogin&&<div className={classes.control}>
           <label htmlFor="email">Your Email</label>
           <input type="email" id="email" required ref={emailInputRef} />
-        </div>
+        </div>}
         <div className={classes.control}>
-          <label htmlFor="password">Your Password</label>
+          <label htmlFor="password">Dein Passwort</label>
           <input
             type="password"
             id="password"
@@ -83,6 +90,15 @@ function AuthForm() {
             ref={passwordInputRef}
           />
         </div>
+        {!isLogin&&<div className={classes.control}>
+          <label htmlFor="password">Wiederhole Passwort</label>
+          <input
+            type="password"
+            id="password"
+            required
+            ref={password2InputRef}
+          />
+        </div>}
         {/* {!isLogin && (
           <div className={classes.control}>
             <label htmlFor="nick">Your Nickname</label>

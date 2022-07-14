@@ -8,7 +8,7 @@ console.log(props.mygirl)
         <div className={classes.userinfoheader}>
           <Link to={`/${props.mygirl.pseudo}`}>
             <img
-              src="http://d1kz6xs4yt2tqw.cloudfront.net/juliasugar-cms/Bildergalerie/300x180/galerie010.jpg"
+              src="https://d2cq08zcv5hf9g.cloudfront.net/480x360/gl3115fb66db374e0494314e5d1c99f50d.webp"
               alt="rover"
             />
           </Link>
@@ -16,7 +16,7 @@ console.log(props.mygirl)
         <div className={classes.userinfobody}>
           <h4>
             {props.mygirl.pseudo}
-          {/*   <small className={classes.online}>ich bin Online</small>{" "}
+            {/*   <small className={classes.online}>ich bin Online</small>{" "}
             <small className={classes.offline}>nicht verfügbar</small> */}
           </h4>
 
