@@ -39,8 +39,6 @@
   text-decoration:none;
   width:100%;
   }
-  
-
 
 .icon1::before {content: url(/images/icons/home.png) " "; padding:5px 10px 0 0;}
 .icon2::before {content: url(/images/icons/abonnements.png) " "; padding:5px 10px 0 0;}
