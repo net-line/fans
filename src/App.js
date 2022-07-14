@@ -2,7 +2,7 @@ import './App.css';
 import React, { Fragment} from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from './layout/footer';
+
 import Models from './pages/models';
 
 import {Route, Routes } from "react-router-dom";
@@ -113,7 +113,7 @@ function App() {
           }
         />
       </Routes>
-      <Footer />
+      
     </Fragment>
   );
 }

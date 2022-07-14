@@ -1,17 +1,17 @@
 import React from "react";
-
+import classes from './footer.module.css';
 import { Link } from "react-router-dom";
 
 const Footer = () =>{
     
 
     return (
-      <div>
-        <Link to="/privacy">
-          <h5>Datenschutz</h5>
+      <div className={classes.footer}>
+        <Link className={classes.footertext} to="/privacy">
+          Datenschutz
         </Link>
-        <Link to="/agb">
-          <h5>AGB</h5>
+        <Link className={classes.footertext} to="/agb">
+          AGB
         </Link>
       </div>
     );

@@ -1,12 +1,17 @@
 body{
-  
+  overflow-x: hidden;
      background-color:#F8F9FA;
 }
 
 .fixme{
+    outline:none;
     position:fixed;
     height:100vh;
-    width:25.5%;
+    width:24.7%;
     position:relative fixed;
     outline:none;
+     border:none;
+}
+.middle{
+    background-color: #f1f1f1;
 }
