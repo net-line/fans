@@ -14,15 +14,13 @@ const TESTARRAY={pseudo:"Caro"}
     return (
       <div>
         <Row className="bg-light">
-          <Col xs="12" lg="4">
+          <Col xs="12" lg="6">
             <FavBox mygirl={TESTARRAY} />
           </Col>
-          <Col xs="12" lg="4">
+          <Col xs="12" lg="6">
             <FavBox mygirl={TESTARRAY} />
           </Col>
-          <Col xs="12" lg="4">
-            <FavBox mygirl={TESTARRAY} />
-          </Col>
+          
         </Row>
       </div>
     );
