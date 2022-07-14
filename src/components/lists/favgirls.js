@@ -1,18 +1,26 @@
 import React from "react";
-import { useStore } from "../store-hooks/store";
-//import Modeladvertorial from "../Cards/modeladvertorial";
+import FavBox from "../Cards/favbox";
 
+//import Modeladvertorial from "../Cards/modeladvertorial";
+import { Col, Row } from "reactstrap";
 
 const Favgirls = () =>{
-const originstate = useStore()[0];
-const secstate = Array.from(originstate.postings);
-const state=secstate.filter(el => el.isFav===true);
 
-console.log(Array.from(state));
-if(state.length<=0){return<div>Noch keine Favoriten gesetzt</div>}
+
+
+const TESTARRAY={pseudo:"Caro"}
+
+
     return (
       <div>
-        <h1>Hier Favoritenliste</h1>
+        <Row className="bg-light">
+          <Col xs="12" lg="6">
+            <FavBox mygirl={TESTARRAY} />
+          </Col>
+          <Col xs="12" lg="6">
+            <FavBox mygirl={TESTARRAY} />
+          </Col>
+        </Row>
       </div>
     );
 };
