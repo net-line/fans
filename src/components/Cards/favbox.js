@@ -20,20 +20,27 @@ console.log(props.mygirl)
             <small className={classes.offline}>nicht verfügbar</small> */}
           </h4>
 
+          <Link className={classes.btn} class="btn-block" to={`/${props.mygirl.pseudo}`}>
+              Zum Profiel
+          </Link>
+          <hr />
           <nav className="text-center">
             <Link className={classes.btn} to="#">
               Nachricht
             </Link>
-
             <Link className={classes.btn} to="#">
               Trinkgeld
             </Link>
-          </nav>
-          <div className={classes.nextline}>
             <Link className={classes.btnabo} to="#">
               Abo kündigen
             </Link>
-          </div>
+          </nav>
+          
+          {/* <div className={classes.nextline}>
+          <Link className={classes.btnabo} to="#">
+              Abo kündigen
+            </Link>
+          </div> */}
         </div>
       </div>
     );
