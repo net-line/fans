@@ -18,6 +18,9 @@ const [showmoretags, setshowmoretags] = useState(false);
   function showmemoretags() {
     setshowmoretags(true);
   };
+   function showmelesstags() {
+    setshowmoretags(false);
+  };
 
     return (
       <div className={classes.pad}>
@@ -60,6 +63,7 @@ const [showmoretags, setshowmoretags] = useState(false);
             )}
             {showmoretags && (
               <div className={classes.tag}>
+                <h5 onClick={showmelesstags}>-</h5>
                 {props.hashtag.map((hashtag) => (
                   <div key={hashtag}>
                     <Link to={`/models/${hashtag.replace("#", "")}`}>
