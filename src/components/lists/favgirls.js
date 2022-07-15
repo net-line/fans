@@ -40,7 +40,7 @@ const TESTARRAY={pseudo:"Caro"}
     return (
       <div>
         {!isLoggedIn && !isPremium && <h1>Logge Dich zunächst ein</h1>}
-        {isLoading && <h1>Lade Favoritenliste</h1>}
+        {isLoading && <h1>Lade Favoritenliste - - - </h1>}
         {error && <h1>{error}</h1>}
         {hasFavs && (
           <Row className="bg-light">
