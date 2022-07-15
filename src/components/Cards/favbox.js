@@ -19,8 +19,8 @@ console.log(props.mygirl)
             {/*   <small className={classes.online}>ich bin Online</small>{" "}
             <small className={classes.offline}>nicht verfügbar</small> */}
           </h4>
-          
-          <Link className="btn btn-block" to={`/${props.mygirl.pseudo}`}>Zum Profil</Link>
+
+          <Link className={classes.btn .btnblock} to={`/${props.mygirl.pseudo}`}>Zum Profil</Link>
           
           <hr />
 
@@ -37,11 +37,6 @@ console.log(props.mygirl)
               Abo kündigen
             </Link>
           </nav>
-          <div className={classes.nextline}>
-            <Link className={classes.btnabo} to="#">
-              Abo kündigen
-            </Link>
-          </div>
         </div>
       </div>
     );

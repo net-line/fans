@@ -80,23 +80,9 @@ small {
  color: #ffffff;
 }  
 
-.btn-block:hover {
-  background-color: #c83232;
-  color: #ffffff !important;
- } 
-
 .btnblock {
-  text-decoration: none;
-   margin:3px;
-  border: none;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 16px;
-  color: #c83232;
-  background-color: #eeeeee;
-  padding: 5px 10px;
-  border-radius: 15px;
-  transition:0.5s;
+  display: block;
+  width: 100%;
 }
 .btnblock:hover {
  background-color: #c83232;
