@@ -20,7 +20,7 @@ console.log(props.mygirl)
             <small className={classes.offline}>nicht verfügbar</small> */}
           </h4>
 
-          <Link className={classes.btn .btnblock} to={`/${props.mygirl.pseudo}`}>Zum Profil</Link>
+          <Link className={`${classes.btn} ${classes.btnblock}`} to={`/${props.mygirl.pseudo}`}>Zum Profil</Link>
           
           <hr />
 
