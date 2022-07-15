@@ -55,7 +55,7 @@ small {
   padding: 5px 10px;
   border-radius: 15px;
   transition:0.5s;
-  margin:3px;
+  margin:5px 0px;
 }
 .btn:hover {
  background-color: #04003b;
@@ -64,7 +64,7 @@ small {
   
 .btnabo {
   text-decoration: none;
-   margin:3px;
+  margin:5px 0px;
   border: none;
   cursor: pointer;
   font-weight: 600;
@@ -83,6 +83,7 @@ small {
 .btnblock {
   display: block;
   width: 100%;
+  text-align: center;
 }
 .btnblock:hover {
  background-color: #c83232;
