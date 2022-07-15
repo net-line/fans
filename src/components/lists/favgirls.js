@@ -44,10 +44,13 @@ const TESTARRAY={pseudo:"Caro"}
         {error && <h1>{error}</h1>}
         {hasFavs && (
           <Row className="bg-light">
-            <Col xs="12" lg="6">
+            <Col xs="12" lg="4">
               <FavBox mygirl={TESTARRAY} />
             </Col>
-            <Col xs="12" lg="6">
+            <Col xs="12" lg="4">
+              <FavBox mygirl={TESTARRAY} />
+            </Col>
+            <Col xs="12" lg="4">
               <FavBox mygirl={TESTARRAY} />
             </Col>
           </Row>
