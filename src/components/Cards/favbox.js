@@ -22,7 +22,7 @@ console.log(props.mygirl)
 
           <Link className={`${classes.btn} ${classes.btnblock}`} to={`/${props.mygirl.pseudo}`}>Zum Profil</Link>
           
-          <hr />
+          
 
           <nav className="text-center">
             <Link className={classes.btn} to="#">
@@ -32,11 +32,13 @@ console.log(props.mygirl)
             <Link className={classes.btn} to="#">
               Trinkgeld
             </Link>
+          </nav>
 
-            <Link className={classes.btnabo} to="#">
+          <hr />
+          <Link className={classes.btnabo} to="#">
               Abo kündigen
             </Link>
-          </nav>
+
         </div>
       </div>
     );
