@@ -6,6 +6,7 @@ import classes from './dynafilters.module.css';
 import MyButton from "../Cards/WrapperComponents/myCard.js/myButton";
 import AuthContext from "../../context/testcontext";
 
+
 const DynaFilters = () => {
 const userCtx = useContext(AuthContext);
 const isLoggedIn = userCtx.isLoggedIn;
@@ -24,10 +25,12 @@ const isPremium = userCtx.isPremium;
     function resetBePremium() {
       userCtx.bePremium();
     }
+
+  
 return (
   <div className={classes.outlinegone}>
     <Header />
-
+{userCtx.isLoggedIn&&<h5>{userCtx.pseudo}</h5>}
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
         {!isLoggedIn && (
