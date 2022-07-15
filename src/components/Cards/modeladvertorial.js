@@ -1,20 +1,71 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import classes from "./modeladvertorial.module.css";
-import { useStore } from "../store-hooks/store";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Messengercard from "./messengercard";
 import MyButtonRund from "./WrapperComponents/myCard.js/myButtonRund";
+import AuthContext from "../../context/testcontext";
+
 
 
 const Modeladvertorial = React.memo(props =>{
-    const dispatch = useStore(false)[1];
+  const history=useNavigate()
+  const authCtx=useContext(AuthContext);
     const modelname=props.name;
 const [showmoretags, setshowmoretags] = useState(false);
   const toggleFavHandler=() =>{
-    dispatch('TOGGLE_FAV', props.id)
+   console.log("test", authCtx.isLoggedIn);
+    if(authCtx.isLoggedIn===false){ history("/login")}
+    else{
+      fetchfavs();
+    }
   
   }
-
+ 
+ function fetchfavs() {
+   fetch(`https://api.deine.fans/api/favs/?userID=${authCtx.userID}&producerID=${props.id}&authToken=${authCtx.token}`)
+   .then((res) => {
+          console.log(res);
+          if (res.ok) {
+             res.json().then((data) => {
+              console.log(data)
+            if (data.hasFavorite === false) {
+              console.log("pfad 1");
+              fetch(
+                `https://api.deine.fans/api/favs`,
+                {
+                  method: "PUT",
+                  body: JSON.stringify({
+                    userID: authCtx.userID,
+                    producerID: props.id,
+                    authToken: authCtx.token,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+            } else {
+              console.log("pfad 2")
+              fetch(
+                `https://api.deine.fans/api/favs`,
+                {
+                  method: "delete",
+                  body: JSON.stringify({
+                    userID: authCtx.userID,
+                    producerID: props.id,
+                    authToken: authCtx.token,
+                  }),
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                }
+              );
+            }
+          })
+          }}
+   );
+   
+ }
   function showmemoretags() {
     setshowmoretags(true);
   };

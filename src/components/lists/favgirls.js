@@ -3,7 +3,8 @@ import FavBox from "../Cards/favbox";
 
 //import Modeladvertorial from "../Cards/modeladvertorial";
 import { Col, Row } from "reactstrap";
-import useMyHttp from "../../hooks/myhttp";
+
+
 import AuthContext from "../../context/testcontext";
 
 const Favgirls = () =>{
@@ -20,36 +21,45 @@ const isPremium = authCtx.isPremium;
 //const isPremium = true;
 
 const [hasFavs,setHasFavs]=useState(false);
-const { isLoading, data, error, sendRequest } = useMyHttp();
+const [favGirls, setFavGirls] = useState([]);
+
 function loadData() {
-  //sendRequest(`https://api.deine.fans/api/images?producerID=${props.id}`);
-  sendRequest(
-    `https://api.deine.fans/favs/${userID}?authToken=${userToken}`
-  );
+   fetch(
+     `https://api.deine.fans/api/favs/${userID}?authToken=${userToken}`
+   ).then((res) => {
+     if (res.ok) {
+       res.json().then((data) => {
+         console.log(data, "wir haben data");
+         if (data.favorites.length > 0) {
+           setFavGirls(data.favorites);
+           setHasFavs(true);
+         }
+       });
+     }
+   });
+          
 }
 
 
 
 useEffect(()=>{
   loadData()
-  setHasFavs(true)
-},[data])
-const TESTARRAY={pseudo:"Caro"}
+ 
+},[])
 
 
     return (
       <div>
         {!isLoggedIn && !isPremium && <h1>Logge Dich zunächst ein</h1>}
-        {isLoading && <h1>Lade Favoritenliste</h1>}
-        {error && <h1>{error}</h1>}
-        {hasFavs && (
+        
+        {hasFavs && favGirls && (
           <Row className="bg-light">
-            <Col xs="12" lg="6">
-              <FavBox mygirl={TESTARRAY} />
-            </Col>
-            <Col xs="12" lg="6">
-              <FavBox mygirl={TESTARRAY} />
-            </Col>
+            
+            {favGirls.map((favgirl, index) => (
+              <Col xs="12" lg="6" key={`col${index}`}>
+                <FavBox mygirl={favgirl.producerID} key={index} />
+              </Col>
+            ))}
           </Row>
         )}
       </div>
