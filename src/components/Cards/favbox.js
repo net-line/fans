@@ -14,7 +14,7 @@ console.log(props.mygirl)
           </Link>
         </div>
         <div className={classes.userinfobody}>
-          <h4>
+          <h4 className="text-center">
             {props.mygirl.pseudo}
             {/*   <small className={classes.online}>ich bin Online</small>{" "}
             <small className={classes.offline}>nicht verfügbar</small> */}
@@ -22,22 +22,13 @@ console.log(props.mygirl)
 
           <Link className={`${classes.btn} ${classes.btnblock}`} to={`/${props.mygirl.pseudo}`}>Zum Profil</Link>
           
-          
+          <Link className={`${classes.btn} ${classes.btnblock}`} to="#">Nachricht</Link>
+         
+          <Link className={`${classes.btn} ${classes.btnblock}`} to="#">Trinkgeld</Link>
 
-          <nav className="text-center">
-            <Link className={classes.btn} to="#">
-              Nachricht
-            </Link>
+           <hr />
 
-            <Link className={classes.btn} to="#">
-              Trinkgeld
-            </Link>
-          </nav>
-
-          <hr />
-          <Link className={classes.btnabo} to="#">
-              Abo kündigen
-            </Link>
+          <Link className={`${classes.btnabo} ${classes.btnblock}`} to="#">Abo kündigen</Link>
 
         </div>
       </div>
