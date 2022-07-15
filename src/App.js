@@ -1,11 +1,11 @@
 import './App.css';
-import React, { Fragment} from 'react';
+import React, { Fragment, useContext, useEffect, useState} from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Models from './pages/models';
 
-import {Route, Routes } from "react-router-dom";
+import {Route, Routes, Navigate } from "react-router-dom";
 import Privacy from './pages/privacy';
 import AGB from './pages/agb';
 import Mainpage from "./layout/mainpage";
@@ -17,11 +17,29 @@ import AddCard from './pages/addcard';
 import Profile from './pages/profile';
 import ManageCard from './pages/profile/managecard';
 import FilteredApiGirls from './components/lists/filteredapigirls';
+import AuthContext from './context/testcontext';
 
 
 
 function App() {
+const userCtx=useContext(AuthContext)
+const [user,setUser] = useState(false)
+useEffect(()=>{
+  if(userCtx.isLoggedIn){
+  setUser(userCtx)
+  }
+})
+const ProtectedRoute = ({
+  user,
+  redirectPath = '/',
+  children,
+}) => {
+  if (!user) {
+    return <Navigate to={redirectPath} replace />;
+  }
 
+  return children;
+};
 
 
   return (
@@ -49,7 +67,7 @@ function App() {
           path="/models/:filterID"
           element={
             <Mainpage>
-             <FilteredApiGirls />
+              <FilteredApiGirls />
             </Mainpage>
           }
         />
@@ -98,7 +116,9 @@ function App() {
           path="/favs"
           element={
             <Mainpage>
-              <Favgirls />
+              <ProtectedRoute user={user}>
+                <Favgirls />
+              </ProtectedRoute>
             </Mainpage>
           }
         />
@@ -113,7 +133,6 @@ function App() {
           }
         />
       </Routes>
-      
     </Fragment>
   );
 }

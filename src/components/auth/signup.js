@@ -44,7 +44,7 @@ function AuthForm() {
     }else{
       //Send POST um User anzulegen
       fetch("https://api.deine.fans/api/userlogin", {
-        method: "PUT",
+        method: "put",
         body: JSON.stringify({
           pseudo: enteredPseudo,
           password: enteredPassword,
