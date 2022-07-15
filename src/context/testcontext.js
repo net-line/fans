@@ -2,17 +2,15 @@ import React, { useState } from "react";
 
 const AuthContext = React.createContext({
   token: "",
-  logindata:"",
-  pseudo:"",
-  userID:"",
+  logindata: "",
+  pseudo: "",
+  userID: "",
   isLoggedIn: false,
-  login: (token) => {},
+  login: (token, logindata, pseudo, userID) => {},
   logout: () => {},
-
 
   premiumtoken: "",
   isPremium: false,
-
 });
 
 export const AuthContextProvider = (props) => {

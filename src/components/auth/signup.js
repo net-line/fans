@@ -22,26 +22,44 @@ function AuthForm() {
   async function submitHandler(event) {
     event.preventDefault();
 
-    const enteredEmail = emailInputRef.current.value;
+    
+        const enteredPseudo = pseudoInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-     const enteredPassword2 = password2InputRef.current.value;
-    const enteredPseudo = pseudoInputRef.current.value;
     //add validation
+
     if(isLogin){
-      fetch(`https://api.deine.fans/api/userlogin?pseudo=${enteredEmail}&password=${passwordInputRef}`)
-      .then((res) =>{
-        console.log(res)
-      if(res.ok){
-       authctx.login("DUMMYTOKEN")
-       console.log(res)
-        return res.json()
-      }else{
-        throw new Error("Fehler")
-      }
-    }).catch((err)=>{
-      console.log(err)
-    })
+      fetch("https://api.deine.fans/api/userlogin", {
+        method: "POST",
+        body: JSON.stringify({
+          pseudo: enteredPseudo,
+          password: enteredPassword,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => {
+          console.log(res);
+          if (res.ok) {
+             res.json().then((data) => {
+               console.log(data.login);
+               authctx.login(
+                 data.authToken,
+                 data.login,
+                 data.pseudo,
+                 data.userID
+               );
+             });
+          } else {
+            throw new Error("Fehler");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }else{
+       const enteredPassword2 = password2InputRef.current.value;
+       const enteredEmail = emailInputRef.current.value;
       //Send POST um User anzulegen
       fetch("https://api.deine.fans/api/userlogin", {
         method: "put",
@@ -56,7 +74,18 @@ function AuthForm() {
         },
       }).then((res) => {
         if (res.ok) {
-          console.log(res);
+          res.json().then((data) => {
+            
+            console.log(data.authToken);
+           
+            authctx.login(
+              data.authToken,
+              data.login,
+              data.pseudo,
+              data.userID
+            );
+           
+          });
         } else {
           res.json().then((data) => {
             //FehlerAnzeige
@@ -73,11 +102,11 @@ function AuthForm() {
     <section className={classes.auth}>
       <h1>{isLogin ? "Login" : "Sign Up"}</h1>
       <form onSubmit={submitHandler}>
-        <div className={classes.control}>
+       <div className={classes.control}>
           <label htmlFor="text">Dein Username</label>
           <input type="text" id="text" required ref={pseudoInputRef} />
         </div>
-        {!isLogin&&<div className={classes.control}>
+         {!isLogin&&<div className={classes.control}>
           <label htmlFor="email">Your Email</label>
           <input type="email" id="email" required ref={emailInputRef} />
         </div>}
