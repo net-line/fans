@@ -1,9 +1,9 @@
 .userinfo {
   margin: 10px;
   background-color: #fff;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   width: 100%;
   border-radius: 20px;
+  border:1px solid #eeeeee;
   overflow:hidden;
   color:#000;
 }
