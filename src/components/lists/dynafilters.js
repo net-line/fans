@@ -5,6 +5,7 @@ import classes from './dynafilters.module.css';
 
 import MyButton from "../Cards/WrapperComponents/myCard.js/myButton";
 import AuthContext from "../../context/testcontext";
+import { faststsignup } from "../../hooks/fastsignup";
 
 
 const DynaFilters = () => {
@@ -13,8 +14,11 @@ const isLoggedIn = userCtx.isLoggedIn;
 const isPremium = userCtx.isPremium;
 
     function logmeinfast (){
-
-      userCtx.login("DUMMYTOKEN"); 
+      var pseu="Hotte1"
+      var pw = "qwert123";
+      
+     faststsignup(pseu,pw, userCtx)
+      
     }
     function logmeoutfast() {
       userCtx.logout();

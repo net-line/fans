@@ -26,7 +26,7 @@ console.log(props.mygirl)
         {data && (
           <div>
             <div className={classes.userinfoheader}>
-              <Link to={data.girl.pseudo}>
+              <Link to={`../${data.girl.pseudo}`}>
                 <img src={data.girl.previewImageIDURLS.urlMedium} alt="rover" />
               </Link>
             </div>
@@ -36,7 +36,10 @@ console.log(props.mygirl)
             <small className={classes.offline}>nicht verfügbar</small> */}
               </h4>
 
-              <Link className={`${classes.btn} ${classes.btnblock}`} to={data.girl.pseudo}>
+              <Link
+                className={`${classes.btn} ${classes.btnblock}`}
+                to={`../${data.girl.pseudo}`}
+              >
                 Zum Profil
               </Link>
 

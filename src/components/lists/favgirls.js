@@ -22,7 +22,9 @@ const isPremium = authCtx.isPremium;
 
 const [hasFavs,setHasFavs]=useState(false);
 const [favGirls, setFavGirls] = useState([]);
-
+useEffect(()=>{
+ window.scrollTo(0, 0);
+},[])
 function loadData() {
    fetch(
      `https://api.deine.fans/api/favs/${userID}?authToken=${userToken}`

@@ -13,7 +13,7 @@ const Modeladvertorial = React.memo(props =>{
     const modelname=props.name;
 const [showmoretags, setshowmoretags] = useState(false);
   const toggleFavHandler=() =>{
-   console.log("test", authCtx.isLoggedIn);
+  
     if(authCtx.isLoggedIn===false){ history("/login")}
     else{
       fetchfavs();
@@ -49,7 +49,7 @@ const [showmoretags, setshowmoretags] = useState(false);
               fetch(
                 `https://api.deine.fans/api/favs`,
                 {
-                  method: "delete",
+                  method: "DELETE",
                   body: JSON.stringify({
                     userID: authCtx.userID,
                     producerID: props.id,
