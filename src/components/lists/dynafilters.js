@@ -116,9 +116,9 @@ return (
             <span className="d-none d-md-block">Collection</span>
           </li>
         </Link>
-        <Link className={classes.leftmenue} to="/login">
+        <Link className={classes.leftmenue} to="/spielwiese">
           <li className={classes.icon3}>
-            <span className="d-none d-md-block">Werde Creator</span>
+            <span className="d-none d-md-block">Spielwiese</span>
           </li>
         </Link>
       </ul>

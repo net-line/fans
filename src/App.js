@@ -20,6 +20,7 @@ import FilteredApiGirls from './components/lists/filteredapigirls';
 import AuthContext from './context/testcontext';
 import TimeLineOfUser from './components/lists/timelineoffollowed';
 import AllSubscriptions from './components/lists/Subscriptions/allsubscriptions';
+import Subscriptionmodal from './components/payment/subscriptionmodal';
 
 
 
@@ -113,6 +114,14 @@ const ProtectedRoute = ({
           element={
             <Mainpage>
               <Login />
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/spielwiese"
+          element={
+            <Mainpage>
+              <Subscriptionmodal />
             </Mainpage>
           }
         />
