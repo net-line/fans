@@ -3,13 +3,14 @@ import {useLocation, useParams} from "react-router-dom";
 //import Messengercard from "../components/Cards/messengercard";
 import Modeladvertorial from "../components/Cards/modeladvertorial";
 import MyButton from "../components/Cards/WrapperComponents/myCard.js/myButton";
-import Allpostes from "../components/lists/allposts";
+//import Allpostes from "../components/lists/allposts";
 //import Allpostes from "../components/lists/allposts";
 
 import AuthContext from "../context/testcontext";
 import useMyHttp from "../hooks/myhttp";
 import { Link } from "react-router-dom";
-import SinglePost from "../components/lists/singlepost";
+//import SinglePost from "../components/lists/singlepost";
+import AllTimeLine from "../components/lists/alltimeline";
 
 
 
@@ -56,8 +57,8 @@ const  test  = location.state;
               id={data.girl.producerID}
               mymotto={data.girl.steckbriefText}
               hashtag={data.girl.hashTags}
-            
             />
+           {authCtx.isLoggedIn && <AllTimeLine girlid={data.girl.producerID} />}
             {!isPremium && (
               <div>
                 <h5>
@@ -69,8 +70,8 @@ const  test  = location.state;
                 </Link>
               </div>
             )}
-            {isPremium && <Allpostes girl={data.girl} />}
-            <SinglePost girl={data.girl} />
+            {/* {isPremium && <Allpostes girl={data.girl} />}
+            <SinglePost girl={data.girl} /> */}
           </div>
         )}
       </div>

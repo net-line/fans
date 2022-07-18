@@ -18,7 +18,8 @@ import Profile from './pages/profile';
 import ManageCard from './pages/profile/managecard';
 import FilteredApiGirls from './components/lists/filteredapigirls';
 import AuthContext from './context/testcontext';
-import AllTimeLine from './components/lists/alltimeline';
+import TimeLineOfUser from './components/lists/timelineoffollowed';
+
 
 
 
@@ -52,7 +53,7 @@ const ProtectedRoute = ({
           element={
             <Mainpage>
               {!userCtx.isLoggedIn && <Models />}
-              {userCtx.isLoggedIn && <AllTimeLine />}
+              {userCtx.isLoggedIn && <TimeLineOfUser />}
             </Mainpage>
           }
         />

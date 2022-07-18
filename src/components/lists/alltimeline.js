@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/testcontext";
 import useMyHttp from "../../hooks/myhttp";
+import PostCard from "../Cards/postCard";
 
 const AllTimeLine=(props)=>{
 const authCtx=useContext(AuthContext)
@@ -9,10 +10,13 @@ const authCtx=useContext(AuthContext)
 const { isLoading, data, error, sendRequest } = useMyHttp();
 function fetchTimeline() {
   sendRequest(
-    `https://api.deine.fans/api/timeline?producerID=${authCtx.userID}&role=User&authToken=${authCtx.token}`,
+    `https://api.deine.fans/api/timeline/producer/${props.girlid}?authToken=${authCtx.token}&role=user&roleID=${authCtx.userID}`,
     "GET"
   );
 }
+
+
+
 
 useEffect(() => {
   fetchTimeline();
@@ -25,16 +29,25 @@ useEffect(() => {
           <div>
             <ul className="list-group list-group-flush border-bottom scrollarea">
               {data.posts.map((post) => (
-                <div>
-                  <h5>{post.creationTime}</h5>
+                <div key={post.guid}>
+                  <PostCard
+                    key={post.creationTime}
+                    thepost={post}
+                    authToken={authCtx.token}
+                    producerId={props.girlid}
+                  />
                 </div>
               ))}
             </ul>
           </div>
         )}
-        {error &&<h5>Irgendwas passt noch nicht</h5>}
-      
-        {data && data.error && <h5>{data.error}</h5>}
+        {error && <h5>Irgendwas passt noch nicht</h5>}
+
+        {data && data.error && (
+          <div>
+            <h5>{data.error}</h5>
+          </div>
+        )}
       </div>
     );
 };
