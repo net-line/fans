@@ -20,6 +20,12 @@ const isPremium = userCtx.isPremium;
      faststsignup(pseu,pw, userCtx)
       
     }
+    function logmeinfastapi() {
+      var pseu = "apitest";
+      var pw = "testedieapi";
+
+      faststsignup(pseu, pw, userCtx);
+    }
     function logmeoutfast() {
       userCtx.logout();
     }
@@ -34,12 +40,17 @@ const isPremium = userCtx.isPremium;
 return (
   <div className={classes.outlinegone}>
     <Header />
-{userCtx.isLoggedIn&&<h5>{userCtx.pseudo}</h5>}
+    {userCtx.isLoggedIn && <h5>{userCtx.pseudo}</h5>}
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
         {!isLoggedIn && (
           <div onClick={logmeinfast}>
-            <MyButton>Quicklogin</MyButton>
+            <MyButton>Quicklogin StandardUser</MyButton>
+          </div>
+        )}
+        {!isLoggedIn && (
+          <div onClick={logmeinfastapi}>
+            <MyButton>QuickloginAPItester</MyButton>
           </div>
         )}
         {isLoggedIn && (
