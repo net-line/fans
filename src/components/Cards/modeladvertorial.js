@@ -72,6 +72,46 @@ const [showmoretags, setshowmoretags] = useState(false);
    function showmelesstags() {
     setshowmoretags(false);
   };
+  function toggleabo (){
+    console.log("test")
+    fetch(
+      `https://api.deine.fans/api/subscriptions/?userID=${authCtx.userID}&producerID=${props.id}&authToken=${authCtx.token}`
+    ).then((res) => {
+      console.log(props.id);
+      if (res.ok) {
+        res.json().then((data) => {
+          console.log(data);
+          if (data.hasFavorite === false) {
+            console.log("pfad 1");
+            fetch(`https://api.deine.fans/api/subscriptions`, {
+              method: "PUT",
+              body: JSON.stringify({
+                userID: authCtx.userID,
+                producerID: props.id,
+                authToken: authCtx.token,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+          } else {
+            console.log("pfad 2");
+            fetch(`https://api.deine.fans/api/subscriptions`, {
+              method: "DELETE",
+              body: JSON.stringify({
+                userID: authCtx.userID,
+                producerID: props.id,
+                authToken: authCtx.token,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            });
+          }
+        });
+      }
+    });
+  }
 
     return (
       <div className={classes.pad}>
@@ -152,9 +192,14 @@ const [showmoretags, setshowmoretags] = useState(false);
                 : "Zu Favoriten hinzufügen"}
             </button>
 
-            <Link to={`/${modelname}`}>
-              <MyButtonRund>Jetzt abonieren</MyButtonRund>
-            </Link>
+            {/* <Link to={`/${modelname}`}> */}
+            <div onClick={toggleabo}>
+              <MyButtonRund>
+                {" "}
+                {props.isFav ? "Abo beenden" : "Abonieren"}
+              </MyButtonRund>
+            </div>
+            {/* </Link> */}
           </div>
         </div>
       </div>

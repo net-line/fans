@@ -19,6 +19,7 @@ import ManageCard from './pages/profile/managecard';
 import FilteredApiGirls from './components/lists/filteredapigirls';
 import AuthContext from './context/testcontext';
 import TimeLineOfUser from './components/lists/timelineoffollowed';
+import AllSubscriptions from './components/lists/Subscriptions/allsubscriptions';
 
 
 
@@ -121,6 +122,16 @@ const ProtectedRoute = ({
             <Mainpage>
               <ProtectedRoute user={user}>
                 <Favgirls />
+              </ProtectedRoute>
+            </Mainpage>
+          }
+        />
+        <Route
+          path="/subscriptions"
+          element={
+            <Mainpage>
+              <ProtectedRoute user={user}>
+                <AllSubscriptions />
               </ProtectedRoute>
             </Mainpage>
           }

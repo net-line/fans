@@ -100,6 +100,11 @@ return (
             <span className="d-none d-md-block">Favoriten</span>
           </li>
         </Link>
+        {isLoggedIn && <Link className={classes.leftmenue} to="/subscriptions">
+          <li className={classes.icon2}>
+            <span className="d-none d-md-block">Meine Abos</span>
+          </li>
+        </Link>}
         <Link className={classes.leftmenue} to="/models">
           <li className={classes.icon8}>
             <span className="d-none d-md-block">Girls</span>
