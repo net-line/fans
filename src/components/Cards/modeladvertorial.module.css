@@ -1,12 +1,13 @@
 .pad{
     padding:1%;
+    z-index:0;
 }
 .padshort{
    padding:1%;
     margin:1%;
 }
 .userinfo {
- 
+  z-index:0;
   background-color: #fff;
   border:1px solid #eeeeee;
   width: 100%;
@@ -45,6 +46,7 @@
 }
   
 .userinfobody {
+   z-index:1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,6 +105,7 @@ small   {
   background-color: #5d0202;
 }
 .btn {
+   z-index:0;
   border: none;
   display: block;
   text-align: center;
@@ -130,4 +133,7 @@ small   {
 }
 .btn:hover {
  background-color: #04003b;
+}
+.setback{
+  z-index:-40;
 }

@@ -11,6 +11,7 @@ import Subscriptionmodal from "../payment/subscriptionmodal";
 const Modeladvertorial = React.memo(props =>{
   const history=useNavigate()
   const authCtx=useContext(AuthContext);
+  console.log(authCtx);
     const modelname=props.name;
 const [showmoretags, setshowmoretags] = useState(false);
   const toggleFavHandler=() =>{
@@ -74,12 +75,13 @@ const [showmoretags, setshowmoretags] = useState(false);
     setshowmoretags(false);
   };
   const [showSubModal, setShowSubModal] = useState(false)
-  function toggleabo (){
-    console.log(showSubModal);
-    setShowSubModal(true);
-   console.log(showSubModal);
-  }
-
+  function openmodal (){
+       setShowSubModal(true);
+    }
+function closemodal(test){
+  console.log(test)
+setShowSubModal(false);
+}
     return (
       <>
         <div className={classes.pad}>
@@ -160,18 +162,28 @@ const [showmoretags, setshowmoretags] = useState(false);
                   : "Zu Favoriten hinzufügen"}
               </button>
 
-              {/* <Link to={`/${modelname}`}> */}
-              <div onClick={toggleabo}>
-                <MyButtonRund>
-                  {" "}
-                  {props.isFav ? "Abo beenden" : "Abonieren"}
-                </MyButtonRund>
-              </div>
-              {/* </Link> */}
+              
+              {authCtx.isLoggedIn && (
+                <div onClick={openmodal}>
+                  <MyButtonRund>
+                    {" "}
+                    {!props.isFav ? "Abo beenden" : "Abonieren"}
+                  </MyButtonRund>
+                </div>
+              )}
+             
             </div>
           </div>
         </div>
-        {showSubModal&&<Subscriptionmodal />}
+        {showSubModal && (
+          <Subscriptionmodal
+            price="3 Dollar"
+            user={authCtx.pseudo}
+            getbackclose={closemodal}
+            girlname={modelname}
+            zahlungsmethode="Kreditkarte"
+          />
+        )}
       </>
     );
               }
