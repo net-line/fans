@@ -6,12 +6,19 @@ import classes from './dynafilters.module.css';
 import MyButton from "../Cards/WrapperComponents/myCard.js/myButton";
 import AuthContext from "../../context/testcontext";
 import { faststsignup } from "../../hooks/fastsignup";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../sonstige/languageswitch";
+
+
+
 
 
 const DynaFilters = () => {
 const userCtx = useContext(AuthContext);
 const isLoggedIn = userCtx.isLoggedIn;
 const isPremium = userCtx.isPremium;
+const {t}=useTranslation();
+
 
     function logmeinfast (){
       var pseu="Hotte1"
@@ -40,7 +47,7 @@ const isPremium = userCtx.isPremium;
 return (
   <div className={classes.outlinegone}>
     <Header />
-    {userCtx.isLoggedIn && <h5>{userCtx.pseudo}</h5>}
+    {userCtx.isLoggedIn && <h5>{t("greeting")} {userCtx.pseudo}</h5>}
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
         {!isLoggedIn && (
@@ -68,6 +75,7 @@ return (
             <MyButton>Reset Premium</MyButton>
           </div>
         )}
+        <LanguageSwitcher />
         {!isLoggedIn && (
           <Link className={classes.leftmenue} to="/login">
             <li className={classes.icon3}>
@@ -86,7 +94,7 @@ return (
         {isLoggedIn && (
           <Link className={classes.leftmenue} to="/profile">
             <li className={classes.icon3}>
-              <span className="d-none d-md-block">Dein Profil</span>
+              <span className="d-none d-md-block">{t("profil")}</span>
             </li>
           </Link>
         )}
@@ -97,14 +105,18 @@ return (
         </Link>
         <Link className={classes.leftmenue} to="/favs">
           <li className={classes.icon2}>
-            <span className="d-none d-md-block">Favoriten</span>
+            <span className="d-none d-md-block">
+              Favoriten
+            </span>
           </li>
         </Link>
-        {isLoggedIn && <Link className={classes.leftmenue} to="/subscriptions">
-          <li className={classes.icon2}>
-            <span className="d-none d-md-block">Meine Abos</span>
-          </li>
-        </Link>}
+        {isLoggedIn && (
+          <Link className={classes.leftmenue} to="/subscriptions">
+            <li className={classes.icon2}>
+              <span className="d-none d-md-block">Meine Abos</span>
+            </li>
+          </Link>
+        )}
         <Link className={classes.leftmenue} to="/models">
           <li className={classes.icon8}>
             <span className="d-none d-md-block">Girls</span>

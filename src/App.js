@@ -24,7 +24,6 @@ import Subscriptionmodal from './components/payment/subscriptionmodal';
 
 
 
-
 function App() {
 const userCtx=useContext(AuthContext)
 const [user,setUser] = useState(false)
