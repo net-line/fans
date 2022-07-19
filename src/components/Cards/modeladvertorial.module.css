@@ -104,6 +104,9 @@ small   {
 .tagcolor3 {
   background-color: #5d0202;
 }
+.btnout{
+  margin: 10px auto;
+}
 .btn {
    z-index:0;
   border: none;

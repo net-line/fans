@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 import classes from "./modeladvertorial.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import Messengercard from "./messengercard";
+//import Messengercard from "./messengercard";
 import MyButtonRund from "./WrapperComponents/myCard.js/myButtonRund";
 import AuthContext from "../../context/testcontext";
 import Subscriptionmodal from "../payment/subscriptionmodal";
-
+import { Col, Row } from "reactstrap";
 
 
 const Modeladvertorial = React.memo(props =>{
@@ -141,39 +141,46 @@ setShowSubModal(false);
                   ))}
                 </div>
               )}
-
-              <h4>
-                {modelname}
-                <small> / {props.age} Jahre</small>
-              </h4>
-
+              <Row>
+                <Col xs="6">
+                  <h4>
+                    {modelname}
+                    <small> / {props.age} Jahre</small>
+                  </h4>
+                </Col>
+                <Col xs="6">
+                  <MyButtonRund
+                    //Nicht vergessen, btn-Style mit MyButton Style synchronisieren
+                    onClick={toggleFavHandler}
+                  >
+                    {props.isFav
+                      ? "Von Favoriten entfernen"
+                      : "Zu Favoriten hinzufügen"}
+                  </MyButtonRund>
+                </Col>
+              </Row>
               <p>{props.mymotto}</p>
+
               <ul className={classes.liste}>
                 <li>
                   <Link to={`/${modelname}`}> {props.numberofitems} Posts</Link>
                 </li>
               </ul>
-              <Messengercard id={props.id} />
-              <button
-                className={
-                  !props.isFav
-                    ? `button-outline ${classes.btn}`
-                    : `${classes.btn}`
-                }
-                //Nicht vergessen, btn-Style mit MyButton Style synchronisieren
-                onClick={toggleFavHandler}
-              >
-                {props.isFav
-                  ? "Von Favoriten entfernen"
-                  : "Zu Favoriten hinzufügen"}
-              </button>
 
-              {authCtx.isLoggedIn && (
-                <div onClick={openmodal}>
-                  <MyButtonRund>
+              {/* <Messengercard id={props.id} /> */}
+              {authCtx.isLoggedIn && authCtx.isPremium && (
+                <div onClick={openmodal} className={classes.btn}>
+                  <button>
                     {" "}
-                    {!props.isFav ? "Abo beenden" : "Abonieren"}
-                  </MyButtonRund>
+                    {!props.isFav ? "Abo beenden" : "Abonnieren"}
+                  </button>
+                </div>
+              )}
+              {authCtx.isLoggedIn && !authCtx.isPremium && (
+                <div onClick={openmodal} className={classes.btnout}>
+                  <button className={classes.btn}>
+                    Zahlungsmethode hinzufügen um diesen Channel zu abonnieren!
+                  </button>
                 </div>
               )}
             </div>
