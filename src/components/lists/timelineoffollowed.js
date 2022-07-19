@@ -7,7 +7,7 @@ const TimeLineOfUser = (props) => {
   const authCtx = useContext(AuthContext);
 
   const { isLoading, data, error, sendRequest } = useMyHttp();
-  function fetchTimeline() {
+  function fetchmyTimeline() {
     sendRequest(
       `https://api.deine.fans/api/timeline/user/${authCtx.userID}?authToken=${authCtx.token}&role=user&roleID=${authCtx.userID}`,
       "GET"
@@ -15,7 +15,7 @@ const TimeLineOfUser = (props) => {
   }
 
   useEffect(() => {
-    fetchTimeline();
+    fetchmyTimeline();
   }, []);
   return (
     <div>
@@ -23,7 +23,7 @@ const TimeLineOfUser = (props) => {
       {isLoading && <h3>LadeDaten</h3>}
       {!isLoading && data && data.posts && (
         <div>
-          <ul className="list-group list-group-flush border-bottom scrollarea">
+          <ul className="">
             {data.posts.map((post) => (
               <div key={post.guid}>
                 <PostCard

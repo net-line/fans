@@ -23,7 +23,7 @@ return (
             <Link to={`../${props.girl}`}>{props.girl}</Link>
           </strong>
         </Col>
-        <Col xs="12" lg="6" className={classes.timelinetitle}>
+        <Col xs="12" lg="6" className={classes.timelinedate}>
           {date}
         </Col>
 
