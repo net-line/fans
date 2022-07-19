@@ -4,12 +4,13 @@ import classes from "./modeladvertorial.module.css";
 import { Link } from "react-router-dom";
 
 import MyButtonRund from "./WrapperComponents/myCard.js/myButtonRund";
+import { useTranslation } from "react-i18next";
 
 const Shortadvertorial = React.memo((props) => {
  
   const modelname = props.name;
 
- 
+ const {t}=useTranslation();
 
   return (
     <div className={classes.padshort}>
@@ -27,7 +28,7 @@ const Shortadvertorial = React.memo((props) => {
           
 
           <Link to={`/${modelname}`} state={{test:"1"}}>
-            <MyButtonRund className={classes.setback}>Jetzt abonieren</MyButtonRund>
+            <MyButtonRund className={classes.setback}>{t("toprofile")}</MyButtonRund>
           </Link>
         </div>
       </div>

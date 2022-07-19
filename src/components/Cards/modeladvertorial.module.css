@@ -137,3 +137,22 @@ small   {
 .setback{
   z-index:-40;
 }
+.plus {
+  text-decoration: none;
+  color: #04003b;
+  padding: 5px 7px;
+  line-height: 0.7;
+  font-weight: bolder;
+  border-radius: 20px;
+  margin-right: 10px;
+  text-align:center;
+  margin-top:5px;
+  width:30%;
+  cursor:pointer;
+  border:2px solid #04003b;
+  }
+  
+.plus:hover {
+  background-color: #2e2e40;
+  color: #fff !important;
+  }

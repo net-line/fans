@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./favbox.module.css";
 import { Link } from "react-router-dom";
 import useMyHttp from "../../hooks/myhttp";
 import { useTranslation } from "react-i18next";
+import OTPModal from "../payment/otp";
 const FavBox = (props) =>{
 console.log(props.mygirl)
 const {t}=useTranslation();
@@ -21,9 +22,27 @@ const {t}=useTranslation();
   useEffect(() => {
     fetchGirlsHandler();
   }, []);
-
+  
+  const [showModal, setShowModal] = useState(false)
+  function toggleModal(){
+    setShowModal(!showModal)
+  }
+  
+  function makeotp(){
+    toggleModal();
+  }
+  function gotbackdata(props){
+    console.log(props)
+    if(props===true)generateHeart();
+    toggleModal();
+  }
+const [onheart,setonheart] = useState()
+   function generateHeart() {
+     setonheart(true);
+    setTimeout(() => setonheart(false), 1000);
+   }
     return (
-      <div className={classes.userinfo}>
+      <div className={classes.userinfo} id="box">
         {data && (
           <div>
             <div className={classes.userinfoheader}>
@@ -51,9 +70,13 @@ const {t}=useTranslation();
                   Nachricht
                 </Link> */}
 
-                <Link className={classes.btn} to="#">
+                <div className={classes.btn} onClick={makeotp} id="paymebox">
                   {t("paymoney")}
-                </Link>
+                  {onheart&&<div id="heart">
+                    <span className={classes.heart}></span>
+                    <span className={classes.heart}></span>
+                  </div>}
+                </div>
 
                 <Link className={classes.btnabo} to="#">
                   {t("unfav")}
@@ -61,6 +84,14 @@ const {t}=useTranslation();
               </nav>
             </div>
           </div>
+        )}
+        {showModal && (
+          <OTPModal
+            girl={data.girl.pseudo}
+            item={"spende"}
+            price={"variabel"}
+            getbackclose={gotbackdata}
+          />
         )}
       </div>
     );

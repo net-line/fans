@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import {useLocation, useParams} from "react-router-dom";
 //import Messengercard from "../components/Cards/messengercard";
 import Modeladvertorial from "../components/Cards/modeladvertorial";
-import MyButton from "../components/Cards/WrapperComponents/myCard.js/myButton";
+
 //import Allpostes from "../components/lists/allposts";
 //import Allpostes from "../components/lists/allposts";
 
@@ -11,7 +11,8 @@ import useMyHttp from "../hooks/myhttp";
 import { Link } from "react-router-dom";
 //import SinglePost from "../components/lists/singlepost";
 import AllTimeLine from "../components/lists/alltimeline";
-
+import classes from "./detail.module.css";
+import { useTranslation } from "react-i18next";
 
 
 const Detailsite=(props)=>{
@@ -23,7 +24,7 @@ const mygirl =params.girlId;
 const location = useLocation();
 const  test  = location.state;
 
-
+const {t}=useTranslation();
 
  const { isLoading, data,  sendRequest } = useMyHttp();
  function fetchGirlsHandler() {
@@ -58,25 +59,23 @@ const  test  = location.state;
               mymotto={data.girl.steckbriefText}
               hashtag={data.girl.hashTags}
             />
-            {authCtx.isLoggedIn && (
+            {authCtx.isLoggedIn && isPremium && (
               <AllTimeLine
                 girlid={data.girl.producerID}
                 girl={data.girl.pseudo}
               />
             )}
-            {!isPremium && (
-              <div>
-                <h5>
-                  Füge Deine Zahlungsinformationen hinzu, um alle Posts dieses
-                  Girls sehen zu können
-                </h5>
-                <Link to="/addcard">
-                  <MyButton>Hier klicken</MyButton>
-                </Link>
-              </div>
-            )}
+
             {/* {isPremium && <Allpostes girl={data.girl} />}
             <SinglePost girl={data.girl} /> */}
+          </div>
+        )}
+        {!isPremium && (
+          <div>
+            <h5 className={classes.head}>{t("addpaylong")}</h5>
+            <Link to="/profile" className={classes.bigbutton}>
+              <div>{t("addpay")}</div>
+            </Link>
           </div>
         )}
       </div>

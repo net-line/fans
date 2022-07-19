@@ -119,12 +119,18 @@ setShowSubModal(false);
                       </span>
                     </Link>
                   )}
-                  {props.hashtag[3] && <h5 onClick={showmemoretags}>+</h5>}
+                  {props.hashtag[3] && (
+                    <h5 onClick={showmemoretags} className={classes.plus}>
+                      +
+                    </h5>
+                  )}
                 </div>
               )}
               {showmoretags && (
                 <div className={classes.tag}>
-                  <h5 onClick={showmelesstags}>-</h5>
+                  <h5 onClick={showmelesstags} className={classes.plus}>
+                    -
+                  </h5>
                   {props.hashtag.map((hashtag) => (
                     <div key={hashtag}>
                       <Link to={`/models/${hashtag.replace("#", "")}`}>
@@ -162,7 +168,6 @@ setShowSubModal(false);
                   : "Zu Favoriten hinzufügen"}
               </button>
 
-              
               {authCtx.isLoggedIn && (
                 <div onClick={openmodal}>
                   <MyButtonRund>
@@ -171,7 +176,6 @@ setShowSubModal(false);
                   </MyButtonRund>
                 </div>
               )}
-             
             </div>
           </div>
         </div>
