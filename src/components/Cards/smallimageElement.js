@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import useMyHttp from "../../hooks/myhttp";
-
+import classes from "./postCard.module.css";
 const SmallImageElement=(props)=>{
 const { data, isLoading, sendRequest } = useMyHttp();
 function thishandler(){
@@ -19,16 +19,12 @@ return (
   <Fragment>
     {isLoading && <h5>Bild lädt</h5>}
     {data && (
-    
-   
-        <img
-          src={data.image.imageURL}
-          alt={data.image.imageID}
-          className="w-100"
-          style={{ cursor: "pointer" }}
-        />
-     
-   
+      <img
+        src={data.image.imageURL}
+        alt={data.image.imageID}
+        className={classes.imageElement}
+        style={{ cursor: "pointer" }}
+      />
     )}
   </Fragment>
 );

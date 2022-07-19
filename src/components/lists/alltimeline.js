@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/testcontext";
 import useMyHttp from "../../hooks/myhttp";
 import PostCard from "../Cards/postCard";
+import classes from "./alltimeline.module.css";
 
 const AllTimeLine=(props)=>{
 const authCtx=useContext(AuthContext)
@@ -22,21 +23,22 @@ useEffect(() => {
   fetchTimeline();
 }, []);
     return (
-      <div>
+      <div className={classes.list}>
         <h5>Here be a timeline</h5>
         {isLoading && <h3>LadeDaten</h3>}
         {!isLoading && data && data.posts && (
           <div>
-            <ul className="list-group list-group-flush border-bottom scrollarea">
+            <ul className={classes.list}>
               {data.posts.map((post) => (
-                <div key={post.guid}>
+                <li key={post.creationTime}>
                   <PostCard
+                    girl={props.girl}
                     key={post.creationTime}
                     thepost={post}
                     authToken={authCtx.token}
                     producerId={props.girlid}
                   />
-                </div>
+                </li>
               ))}
             </ul>
           </div>

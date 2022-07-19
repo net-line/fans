@@ -58,7 +58,12 @@ const  test  = location.state;
               mymotto={data.girl.steckbriefText}
               hashtag={data.girl.hashTags}
             />
-           {authCtx.isLoggedIn && <AllTimeLine girlid={data.girl.producerID} />}
+            {authCtx.isLoggedIn && (
+              <AllTimeLine
+                girlid={data.girl.producerID}
+                girl={data.girl.pseudo}
+              />
+            )}
             {!isPremium && (
               <div>
                 <h5>

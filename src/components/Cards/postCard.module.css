@@ -1,9 +1,96 @@
-.box{
-
-    margin:1%;
-    padding:1%;
-    border:2px solid red;
-    border-radius:20px;
-    background-color: aliceblue;
-    color:#666;
-}
+.timeline {
+  padding: 20px;
+ background:#d4d4d4;
+  width:100%;
+  margin:1%;
+  }
+  
+.timelinetitle {
+  color: #04003b;
+  cursor: pointer;
+  }
+  
+.timelinetitle a{
+  color: #04003b;
+  cursor: pointer;
+  }
+  
+.timelinetitle a:hover{
+  color: #c83232;
+  cursor: pointer;
+  }  
+  
+.timelinedate {
+  color: #333333;
+  text-align:right;
+  }
+  
+.timelinecontent {
+  padding: 0 20px 20px;
+  font-size: 1.2em;
+  }
+  
+.timelinecontent .heading {
+  font-size: 1.3em;
+  font-weight:700;
+  }  
+  
+.timelinecontent a{
+  color: #c83232; 
+  cursor: pointer;
+  }
+  
+.timelinecontent a:hover{
+  color: #04003b;
+  cursor: pointer;
+  } 
+  
+.timelinecontent img {
+  border-radius:5px;
+  }  
+  
+.timelinemenu {
+  display: flex;
+  align-items: center;
+  padding:10px 0px;
+  }
+  
+.timelinemenuitem {
+  text-decoration: none;
+  color: #ccc8db;
+  padding: 10px 14px;
+  line-height: 0.7;
+  font-weight: 500;
+  border-radius: 20px;
+  margin-right: 10px;
+  }
+  
+.timelinemenuitem:hover {
+  background-color: #2e2e40;
+  color: #fff !important;
+  }
+  
+.bigbutton {
+  font-size:1.8rem;
+  font-weight:bold;
+  color: #fff !important;
+  width:100%;
+  text-align:center;
+  display:block;
+  padding:20px;
+  background:#c83232;
+  margin:10px 0;
+  border-radius:50px;
+  cursor: pointer;
+  transition:0.25s;
+  } 
+  
+.bigbutton:hover {
+  background:#04003b;
+  } 
+  .imageElement{
+    height:100%;
+    min-width: 100%;
+    display:block;
+    margin:auto;
+  }

@@ -1,0 +1,12 @@
+.list{
+    width:100%;
+    margin: 0;
+    
+    list-style: none;
+    margin-bottom:1%;
+}
+.list li{margin-left:-40px;
+margin-right:5px;}
+.row{
+    width:100%;
+}
