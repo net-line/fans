@@ -24,7 +24,7 @@ useEffect(() => {
 }, []);
     return (
       <div className={classes.list}>
-        <h5>Here be a timeline</h5>
+       
         {isLoading && <h3>LadeDaten</h3>}
         {!isLoading && data && data.posts && (
           <div>

@@ -2,5 +2,14 @@
   "greeting": "Hallo",
   "text": "Vielen Dank",
   "language": "Sprache",
-  "profil":"Dein Profil"
+  "profil": "Mein Profil",
+  "addpay": "Zahlungsmethode hinzufügen",
+  "privacy0": "Datenschutzerklärung",
+  "favs": "Meine Merkliste",
+  "abos": "Meine Abonnements",
+  "channels": "Alle Channels",
+  "paymoney": "Sende Geld",
+  "unfav": "Von Favoriten entfernen",
+  "mycollection": "Meine Sammlung",
+  "privacy1": "GEONDA informiert im folgenden über Verwendung und Erhebung von Daten in Verbindung mit diesem Internetauftritt. Die nachfolgende Erklärung gibt Ihnen einen Überblick darüber, welche Art von Daten zu welchem Zweck erhoben werden."
 }

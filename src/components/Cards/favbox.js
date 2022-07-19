@@ -2,9 +2,10 @@ import React, { useEffect } from "react";
 import classes from "./favbox.module.css";
 import { Link } from "react-router-dom";
 import useMyHttp from "../../hooks/myhttp";
+import { useTranslation } from "react-i18next";
 const FavBox = (props) =>{
 console.log(props.mygirl)
-
+const {t}=useTranslation();
   const { isLoading, data, error, sendRequest, clear } = useMyHttp();
   function fetchGirlsHandler() {
     //sendRequest(`https://api.deine.fans/api/girls/${props.id}`);
@@ -46,16 +47,16 @@ console.log(props.mygirl)
               <hr />
 
               <nav className="text-center">
-                <Link className={classes.btn} to="#">
+                {/* <Link className={classes.btn} to="#">
                   Nachricht
-                </Link>
+                </Link> */}
 
                 <Link className={classes.btn} to="#">
-                  Trinkgeld
+                  {t("paymoney")}
                 </Link>
 
                 <Link className={classes.btnabo} to="#">
-                  Abo kündigen
+                  {t("unfav")}
                 </Link>
               </nav>
             </div>

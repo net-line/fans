@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/testcontext";
 import useMyHttp from "../../hooks/myhttp";
 import PostCard from "../Cards/postCard";
+import classes from "./timelineofuser.module.css";
 
 const TimeLineOfUser = (props) => {
   const authCtx = useContext(AuthContext);
@@ -19,7 +20,7 @@ const TimeLineOfUser = (props) => {
   }, []);
   return (
     <div>
-      <h5>Here be a timeline</h5>
+      <h3 className={classes.head}>Die neuesten Posts Deiner abonierten Channels</h3>
       {isLoading && <h3>LadeDaten</h3>}
       {!isLoading && data && data.posts && (
         <div>
