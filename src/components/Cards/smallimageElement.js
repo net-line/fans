@@ -1,6 +1,7 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import useMyHttp from "../../hooks/myhttp";
 import classes from "./postCard.module.css";
+import ShowImageModal from "./showimagemodal";
 const SmallImageElement=(props)=>{
 const { data, isLoading, sendRequest } = useMyHttp();
 function thishandler(){
@@ -15,6 +16,10 @@ useEffect(()=>{
     thishandler();
     
 },[])
+const [showModal,setShowModal] = useState()
+function toggleModal(){
+  setShowModal(!showModal);
+}
 return (
   <Fragment>
     {isLoading && <h5>Bild lädt</h5>}
@@ -24,6 +29,14 @@ return (
         alt={data.image.imageID}
         className={classes.imageElement}
         style={{ cursor: "pointer" }}
+        onClick={toggleModal}
+      />
+    )}
+    {data && showModal && (
+      <ShowImageModal
+        image={data.image.imageURL}
+        getback={toggleModal}
+        
       />
     )}
   </Fragment>

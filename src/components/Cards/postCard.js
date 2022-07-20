@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import classes from "./postCard.module.css";
 import SmallImageElement from "./smallimageElement";
@@ -6,6 +6,7 @@ import SmallImageElement from "./smallimageElement";
 import { Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import OTPModal from "../payment/otp";
 
 const PostCard = (props) =>{
 
@@ -13,7 +14,14 @@ var date = new Date(props.thepost.creationTime)
  .toLocaleDateString(2);
 
   const {t}=useTranslation();
-
+const [showModal,setshowModal] = useState(false)
+function toggleModal () {
+  setshowModal(!showModal);
+}
+function gotit(props){
+  console.log(props)
+  toggleModal();
+}
 return (
   <div className={classes.timeline}>
     <div className={classes.timelinecontent}>
@@ -131,9 +139,14 @@ return (
                     <h5>
                       {t("getthisforonly")} {props.thepost.price} EUR!
                     </h5>
-                    <div className={classes.bigbutton} key={`bb${item.guid}`}>
+                    <div
+                      className={classes.bigbutton}
+                      key={`bb${item.guid}`}
+                      onClick={toggleModal}
+                    >
                       {t("freischalten")}
                     </div>
+                    {showModal && <OTPModal price={props.thepost.price} Zahlungsmethode="Kreditkarte" item="Diesen Post" getbackclose={gotit}/>}
                   </div>
                 )
               )}
