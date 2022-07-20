@@ -5,6 +5,10 @@
     list-style: none;
     margin-bottom:1%;
 }
+.list ul{
+    padding:0px;
+   
+}
 .list li{margin-left:-40px;
 margin-right:5px;}
 .row{

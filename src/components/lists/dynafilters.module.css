@@ -1,14 +1,18 @@
 .outlinegone{
   outline:none;
+  
+  width:100%;
+  margin-left: 0px;
 }
 
 .leftmenue ul{
   list-style: none;
   margin: 10px 25px;
-  padding: 0;
+  padding: 0px 0px 20px 0px;
 }
 
 .leftmenue ul li{
+  margin-top:10px;
   display:flex;
   align-items:center;
   justify-content: flex-start;
@@ -50,4 +54,14 @@
 .icon8::before {content: url(/images/icons/girls.png) " "; padding:5px 10px 0 0;}
 .icon9::before {content: url(/images/icons/meinprofil.png) " "; padding:5px 10px 0 0;}
 
+.xtrabtn{
 
+ margin-top:20px;
+}
+
+@media (max-width: 768px) {
+.xtrabtn{
+ transform:translateX(-20px);
+ margin-top:20px;
+}
+}

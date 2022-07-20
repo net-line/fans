@@ -5,13 +5,14 @@ import SmallImageElement from "./smallimageElement";
 //import MyButton from "./WrapperComponents/myCard.js/myButton";
 import { Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const PostCard = (props) =>{
-console.log(props)
+
 var date = new Date(props.thepost.creationTime)
  .toLocaleDateString(2);
 
-  
+  const {t}=useTranslation();
 
 return (
   <div className={classes.timeline}>
@@ -31,20 +32,20 @@ return (
         <p>{props.thepost.tags}</p>
         <div className={classes.timelinemenu}>
           <Link className={classes.timelinemenuitem} to="#">
-            Zum Profil
+            {t("toprofile")}
           </Link>
           <span> </span>
           <Link className={classes.timelinemenuitem} to="#">
-            Mehr Bilder
+            Mehr
           </Link>
           <span> </span>
           <Link className={classes.timelinemenuitem} to="#">
-            Mehr Videos
+            Mehr
           </Link>
         </div>
         {props.thepost.freeMedia.length > 0 ? (
           <div>
-            <small>Kostenlose Inhalte:</small>
+            <small>{t("forfree")}</small>
             <div className="">
               {props.thepost.freeMedia.map((item) => (
                 <div
@@ -79,7 +80,7 @@ return (
         ) : null}
         {props.thepost.payMedia.length > 0 ? (
           <div>
-            <small>kostenpflichtige Inhalte:</small>
+            <small>{t("forpay")}</small>
             <div className="" style={{ gap: "4px" }}>
               {props.thepost.payMedia.map((item) =>
                 item.isPaid ? (
@@ -124,11 +125,10 @@ return (
                     </div>
                     {console.log(item.type)}
                     <h5>
-                      Schalte diesen Post für nur {props.thepost.price} EUR
-                      frei!
+                      {t("getthisforonly")} {props.thepost.price} EUR!
                     </h5>
                     <div className={classes.bigbutton} key={`bb${item.guid}`}>
-                      Kaufs Dir
+                      {t("freischalten")}
                     </div>
                   </div>
                 )

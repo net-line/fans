@@ -4,14 +4,21 @@
   "language": "Language",
   "profil": "My profile",
   "addpay": "Add payment option",
-  "privacy0": "Data privacy",
+
   "favs": "My Favorits",
   "abos": "My subscriptions",
   "addpaylong": "Add a payment solution to view all posts of this channel.",
   "mycollection": "My collection",
   "paymoney": "Send money",
+  "forfree": "Free content",
+  "forpay": "Premium content",
+
+  "getthisforonly": "Get this post for only",
   "unfav": "Remove from Fav",
   "toprofile": "To the profile",
   "channels": "All channels",
+  "freischalten": "Buy now",
+
+  "privacy0": "Data privacy",
   "privacy1": "The following contains information on the policies of GEONDA with regard to the use and collection of data submitted via this website. The following Data Protection and Privacy Policy will provide you with information about which kind of data is collected and for which purposes it is used."
 }

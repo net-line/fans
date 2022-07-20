@@ -1,5 +1,5 @@
 .header {
-    width: 100%;
+    width: 108%;
     display: flex;
     justify-content: space-between;
    padding:20px;
@@ -38,12 +38,17 @@ color:#d95058;
     list-style: none;
     
   }
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
     .logo {
       font-size: 2.5rem;
     }
   
     .navigation a {
       font-size: 1.5rem;
+    }
+    .header {
+      padding:5px;
+      width:125%;
+
     }
   }

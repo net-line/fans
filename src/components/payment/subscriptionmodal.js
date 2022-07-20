@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import MyButton from "../Cards/WrapperComponents/myCard.js/myButton";
 import classes from "./subscriptionmodal.module.css"
 import { Link } from "react-router-dom";
+import { addabo } from "../../hooks/addabo";
 
 const Subscriptionmodal = (props) => {
 
@@ -9,6 +10,7 @@ function closeme (){
   props.getbackclose(false);
 }
 function closetrue() {
+  addabo("_a_apitest", props.girlname, "231212", "_a_apitest");
   props.getbackclose(true);
 }
 const [consent,setConsent]=useState(false);
@@ -31,7 +33,7 @@ function togglewiderspruch(){
           <h4>Hallo {props.user},</h4>
           <h5>
             hiermit schließt Du ein Abonement für die Posts von {props.girlname}{" "}
-            für {props.price} pro Monat ab. Der Betrag wird von Deiner
+            für {props.price} Euro pro Monat ab. Der Betrag wird von Deiner
             Zahlungsmethode {props.zahlungsmethode} abgebucht. Du kannst Dein
             Abonement jederzeit kündigen.
           </h5>

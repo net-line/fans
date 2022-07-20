@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {Link} from "react-router-dom";
 import Header from "../../layout/header";
 import classes from './dynafilters.module.css';
@@ -43,43 +43,51 @@ const {t}=useTranslation();
       userCtx.bePremium();
     }
 
+  const [showMoney, setShowMoney] = useState(null);
   
+useEffect(() => {
+  setShowMoney(userCtx.fanDollar);
+}, [userCtx.fanDollar]);
+
 return (
   <div className={classes.outlinegone}>
     <Header />
-    {userCtx.isLoggedIn && (
-      <h5>
-        {t("greeting")} {userCtx.pseudo}
-      </h5>
-    )}
+
     <div className={classes.leftmenue}>
       <ul className={classes.icon}>
+        {userCtx.isLoggedIn && (
+          <h5 className={classes.xtrabtn}>
+            {t("greeting")} {userCtx.pseudo}
+          </h5>
+        )}
         {!isLoggedIn && (
-          <div onClick={logmeinfast}>
+          <div onClick={logmeinfast} className={classes.xtrabtn}>
             <MyButton>Quicklogin StandardUser</MyButton>
           </div>
         )}
         {!isLoggedIn && (
-          <div onClick={logmeinfastapi}>
-            <MyButton>QuickloginAPItester</MyButton>
+          <div onClick={logmeinfastapi} className={classes.xtrabtn}>
+            <MyButton>Quicklogin APItester</MyButton>
           </div>
         )}
         {isLoggedIn && (
-          <div onClick={logmeoutfast}>
+          <div onClick={logmeoutfast} className={classes.xtrabtn}>
             <MyButton>Logout</MyButton>
           </div>
         )}
         {isLoggedIn && !isPremium && (
-          <div onClick={setmePremium}>
+          <div onClick={setmePremium} className={classes.xtrabtn}>
             <MyButton>Set Premium</MyButton>
           </div>
         )}
         {isLoggedIn && isPremium && (
-          <div onClick={resetBePremium}>
+          <div onClick={resetBePremium} className={classes.xtrabtn}>
             <MyButton>Reset Premium</MyButton>
           </div>
         )}
-        <LanguageSwitcher />
+        <div className={classes.xtrabtn}>
+          <LanguageSwitcher />
+        </div>
         {!isLoggedIn && (
           <Link className={classes.leftmenueright} to="/login">
             <li className={classes.icon3}>
@@ -92,14 +100,14 @@ return (
             <span className="d-none d-md-block">Home</span>
           </li>
         </Link>
-        {isLoggedIn && !isPremium && (
+        {isLoggedIn && (
           <Link className={classes.leftmenue} to="/profile">
             <li className={classes.icon3}>
               <span className="d-none d-md-block">{t("addpay")}</span>
             </li>
           </Link>
         )}
-
+        {isLoggedIn && showMoney && <p>{showMoney} FanDollar</p>}
         {isLoggedIn && (
           <Link className={classes.leftmenue} to="/profile">
             <li className={classes.icon3}>
@@ -115,7 +123,7 @@ return (
             </li>
           </Link>
         )}
-        {isLoggedIn && !isPremium && (
+        {isLoggedIn && isPremium && (
           <Link className={classes.leftmenue} to="/subscriptions">
             <li className={classes.icon2}>
               <span className="d-none d-md-block">{t("abos")}</span>
@@ -128,12 +136,13 @@ return (
           </li>
         </Link>
 
-       {isLoggedIn && !isPremium && <Link className={classes.leftmenue} to="/collection">
-          <li className={classes.icon3}>
-            <span className="d-none d-md-block">{t("mycollection")}</span>
-          </li>
-        </Link>}
-       
+        {isLoggedIn && isPremium && (
+          <Link className={classes.leftmenue} to="/collection">
+            <li className={classes.icon3}>
+              <span className="d-none d-md-block">{t("mycollection")}</span>
+            </li>
+          </Link>
+        )}
       </ul>
     </div>
   </div>

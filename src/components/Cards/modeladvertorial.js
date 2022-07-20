@@ -11,7 +11,7 @@ import { Col, Row } from "reactstrap";
 const Modeladvertorial = React.memo(props =>{
   const history=useNavigate()
   const authCtx=useContext(AuthContext);
-  console.log(authCtx);
+
     const modelname=props.name;
 const [showmoretags, setshowmoretags] = useState(false);
   const toggleFavHandler=() =>{
@@ -90,7 +90,9 @@ setShowSubModal(false);
               <img src={props.secondimage} alt={modelname} />
             </div>
             <div className={classes.userinfoheader}>
-              <img src={props.image} alt={modelname} />
+              <Link to={`/${modelname}`}>
+                <img src={props.image} alt={modelname} />
+              </Link>
             </div>
             <div className={classes.userinfobody}>
               {!showmoretags && (
@@ -149,14 +151,15 @@ setShowSubModal(false);
                   </h4>
                 </Col>
                 <Col xs="6">
-                  <MyButtonRund
+                  <div onClick={toggleFavHandler}>
+                    <MyButtonRund
                     //Nicht vergessen, btn-Style mit MyButton Style synchronisieren
-                    onClick={toggleFavHandler}
-                  >
-                    {props.isFav
-                      ? "Von Favoriten entfernen"
-                      : "Zu Favoriten hinzufügen"}
-                  </MyButtonRund>
+                    >
+                      {props.isFav
+                        ? "Von Favoriten entfernen"
+                        : "Zu Favoriten hinzufügen"}
+                    </MyButtonRund>
+                  </div>
                 </Col>
               </Row>
               <p>{props.mymotto}</p>
@@ -169,10 +172,9 @@ setShowSubModal(false);
 
               {/* <Messengercard id={props.id} /> */}
               {authCtx.isLoggedIn && authCtx.isPremium && (
-                <div onClick={openmodal} className={classes.btn}>
-                  <button>
-                    {" "}
-                    {!props.isFav ? "Abo beenden" : "Abonnieren"}
+                <div onClick={openmodal} className={classes.btnout}>
+                  <button className={classes.btn}>
+                    {!props.isAbo ? "Abo beenden" : "Abonnieren"}
                   </button>
                 </div>
               )}
@@ -188,7 +190,7 @@ setShowSubModal(false);
         </div>
         {showSubModal && (
           <Subscriptionmodal
-            price="3 Dollar"
+            price="15"
             user={authCtx.pseudo}
             getbackclose={closemodal}
             girlname={modelname}

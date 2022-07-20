@@ -1,9 +1,9 @@
-// import React, { useContext, useState } from "react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+
 import MyButton from "../Cards/WrapperComponents/myCard.js/myButton";
 import classes from "./subscriptionmodal.module.css";
 import { Link } from "react-router-dom";
-//import AuthContext from "../../context/testcontext";
+import AuthContext from "../../context/testcontext";
 import { Row, Col } from "reactstrap";
 
 const OTPModal = (props) => {
@@ -11,17 +11,21 @@ const OTPModal = (props) => {
     props.getbackclose(false);
   }
   function closetrue() {
-    props.getbackclose(true);
+    const payments = {
+      preis: props.price,
+      payed: newprice,
+    };
+    if (newprice>0){authCtx.fanDollar=authCtx.fanDollar-(Number(props.price)-newprice)}
+    props.getbackclose(payments);
   }
   const [consent, setConsent] = useState(false);
   
   function togglewiderspruch() {
     setConsent(!consent);
   }
-  //const authCtx=useContext(AuthContext)
-  //const userFanDollar=Number(authCtx.fanDollar);
+  const authCtx=useContext(AuthContext)
+  const userFanDollar=Number(authCtx.fanDollar);
 
-  const userFanDollar=100
 
 const [newprice,setNewPrice] = useState(0)
   const [paywithFanDollar, setPaywithFandollar]=useState(false);

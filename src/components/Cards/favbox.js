@@ -89,7 +89,7 @@ const [onheart,setonheart] = useState()
           <OTPModal
             girl={data.girl.pseudo}
             item={"eine Spende"}
-            price={"20"}
+            price={"105"}
             getbackclose={gotbackdata}
             zahlungsmethode="Kreditkarte"
           />

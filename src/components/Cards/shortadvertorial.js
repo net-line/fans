@@ -15,20 +15,18 @@ const Shortadvertorial = React.memo((props) => {
   return (
     <div className={classes.padshort}>
       <div className={classes.userinfo}>
-       
         <div className={classes.userinfoheadershort}>
-          <img src={props.image} alt={modelname} />
+          <Link to={`/${modelname}`} state={{ test: "1" }}>
+            <img src={props.image} alt={modelname} />
+          </Link>
         </div>
         <div className={classes.userinfobody}>
-         
-
-          
-
           <p>{props.mymotto}</p>
-          
 
-          <Link to={`/${modelname}`} state={{test:"1"}}>
-            <MyButtonRund className={classes.setback}>{t("toprofile")}</MyButtonRund>
+          <Link to={`/${modelname}`} state={{ test: "1" }}>
+            <MyButtonRund className={classes.setback}>
+              {t("toprofile")}
+            </MyButtonRund>
           </Link>
         </div>
       </div>

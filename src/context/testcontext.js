@@ -19,15 +19,16 @@ export const AuthContextProvider = (props) => {
   const [pseudo, setPseudo] = useState(null);
   const [userID, setUserID] = useState(null);
   const [premiumToken, setPremiumToken] = useState(null);
-
+  const [fanDollar, setFanDollar]=useState(null)
   const userIsLoggedIn = !!token;
   const userIsPremium = !!premiumToken;
 
-  const loginHandler = (token,logindata,pseudo,userID) => {
+  const loginHandler = (token, logindata, pseudo, userID, fanDollar) => {
     setToken(token);
     setLogindata(logindata);
     setPseudo(pseudo);
     setUserID(userID);
+    setFanDollar(fanDollar)
   };
 
   const logoutHandler = () => {
@@ -35,6 +36,7 @@ export const AuthContextProvider = (props) => {
      setLogindata(null);
      setPseudo(null);
      setUserID(null);
+     setFanDollar(null);
     
   };
   const bePremiumHandler = (premiumToken) =>{
@@ -55,7 +57,7 @@ export const AuthContextProvider = (props) => {
     isPremium:userIsPremium,
     bePremium: bePremiumHandler,
     dontBePremium: dontBePremiumHandler,
-    fanDollar:"100",
+    fanDollar:fanDollar,
   };
 
   return (
