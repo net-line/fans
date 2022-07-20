@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import classes from "./modeladvertorial.module.css";
 import { Link, useNavigate } from "react-router-dom";
 //import Messengercard from "./messengercard";
@@ -82,6 +82,11 @@ function closemodal(test){
   console.log(test)
 setShowSubModal(false);
 }
+
+useEffect(() => {
+  const body = document.querySelector("body");
+  body.style.overflow = showSubModal ? "hidden" : "auto";
+}, [showSubModal]);
     return (
       <>
         <div className={classes.pad}>
@@ -172,10 +177,11 @@ setShowSubModal(false);
 
               {/* <Messengercard id={props.id} /> */}
               {authCtx.isLoggedIn && authCtx.isPremium && (
-                <div onClick={openmodal} className={classes.btnout}>
-                  <button className={classes.btn}>
+                <div className={classes.btnout}>
+                  <button className={classes.btn} onClick={openmodal}>
                     {!props.isAbo ? "Abo beenden" : "Abonnieren"}
                   </button>
+                  
                 </div>
               )}
               {authCtx.isLoggedIn && !authCtx.isPremium && (
