@@ -8,7 +8,7 @@ const AuthContext = React.createContext({
   isLoggedIn: false,
   login: (token, logindata, pseudo, userID) => {},
   logout: () => {},
-
+  fanDollar:"",
   premiumtoken: "",
   isPremium: false,
 });
@@ -55,6 +55,7 @@ export const AuthContextProvider = (props) => {
     isPremium:userIsPremium,
     bePremium: bePremiumHandler,
     dontBePremium: dontBePremiumHandler,
+    fanDollar:"100",
   };
 
   return (

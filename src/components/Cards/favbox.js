@@ -88,9 +88,10 @@ const [onheart,setonheart] = useState()
         {showModal && (
           <OTPModal
             girl={data.girl.pseudo}
-            item={"spende"}
-            price={"variabel"}
+            item={"eine Spende"}
+            price={"20"}
             getbackclose={gotbackdata}
+            zahlungsmethode="Kreditkarte"
           />
         )}
       </div>
