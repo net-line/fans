@@ -33,7 +33,7 @@ const {t}=useTranslation();
   }
   function gotbackdata(props){
     console.log(props)
-    if(props===true)generateHeart();
+    if(props.preis)generateHeart();
     toggleModal();
   }
 const [onheart,setonheart] = useState()
