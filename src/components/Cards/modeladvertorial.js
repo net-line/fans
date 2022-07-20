@@ -177,11 +177,11 @@ setShowSubModal(false);
                 </div>
               )}
               {authCtx.isLoggedIn && !authCtx.isPremium && (
-                <div onClick={openmodal} className={classes.btnout}>
+                <Link to="/profile" className={classes.btnout}>
                   <button className={classes.btn}>
                     Zahlungsmethode hinzufügen um diesen Channel zu abonnieren!
                   </button>
-                </div>
+                </Link>
               )}
             </div>
           </div>
