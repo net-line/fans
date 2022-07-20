@@ -31,7 +31,11 @@ return (
         <p className={classes.heading}>{props.thepost.msgText}</p>
         <p>{props.thepost.tags}</p>
         <div className={classes.timelinemenu}>
-          <Link className={classes.timelinemenuitem} to="#">
+          <Link
+            className={classes.timelinemenuitem}
+            to={`/${props.girl}`}
+            state={{ test: "1" }}
+          >
             {t("toprofile")}
           </Link>
           <span> </span>

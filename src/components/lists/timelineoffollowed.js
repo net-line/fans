@@ -24,7 +24,7 @@ const TimeLineOfUser = (props) => {
       {isLoading && <h3>LadeDaten</h3>}
       {!isLoading && data && data.posts && (
         <div>
-          <ul className="">
+          <ul className={classes.timelist}>
             {data.posts.map((post) => (
               <div key={post.guid}>
                 <PostCard
