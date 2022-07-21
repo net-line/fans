@@ -32,7 +32,9 @@ const TimeLineOfUser = (props) => {
                   thepost={post}
                   authToken={authCtx.token}
                   producerId={props.girlid}
+                  girl={data.posts.pseudo}
                 />
+                {console.log("timelineofuser",data)}
               </div>
             ))}
           </ul>

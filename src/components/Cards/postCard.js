@@ -7,12 +7,13 @@ import { Col, Row } from "reactstrap";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import OTPModal from "../payment/otp";
+//import AuthContext from "../../context/testcontext";
 
 const PostCard = (props) =>{
-
+console.log("postcardprop",props)
 var date = new Date(props.thepost.creationTime)
  .toLocaleDateString(2);
-
+//const authCtx=useContext(AuthContext);
   const {t}=useTranslation();
 const [showModal,setshowModal] = useState(false)
 function toggleModal () {
@@ -29,7 +30,9 @@ return (
         <Col xs="12" lg="6" className={classes.timelinetitle}>
           Neuer Eintrag von{" "}
           <strong>
-            <Link to={`../${props.girl}`}>{props.girl}</Link>
+            <Link to={`../${props.girl}`}>
+              {props.girl}
+            </Link>
           </strong>
         </Col>
         <Col xs="12" lg="6" className={classes.timelinedate}>
@@ -47,9 +50,11 @@ return (
             {t("toprofile")}
           </Link>
           <span> </span>
-          <Link className={classes.timelinemenuitem} to="#">
+          {/* {props.thepost.favs.filter((el) => el.userID === authCtx.userID)} ? (
+          <Link className={classes.timelinemenuitem} to="/collection">
             Mehr
           </Link>
+          ) : <h5>Add to Collection</h5> */}
           <span> </span>
           <Link className={classes.timelinemenuitem} to="#">
             Mehr
@@ -146,7 +151,14 @@ return (
                     >
                       {t("freischalten")}
                     </div>
-                    {showModal && <OTPModal price={props.thepost.price} Zahlungsmethode="Kreditkarte" item="Diesen Post" getbackclose={gotit}/>}
+                    {showModal && (
+                      <OTPModal
+                        price={props.thepost.price}
+                        Zahlungsmethode="Kreditkarte"
+                        item="Diesen Post"
+                        getbackclose={gotit}
+                      />
+                    )}
                   </div>
                 )
               )}
