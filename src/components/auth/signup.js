@@ -1,4 +1,5 @@
 import React, { useState, useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/testcontext";
 import classes from "./signup.module.css";
 
@@ -18,7 +19,7 @@ function AuthForm() {
     setIsLogin((prevState) => !prevState);
   }
 
-
+const navigate=useNavigate()
   async function submitHandler(event) {
     event.preventDefault();
 
@@ -49,6 +50,7 @@ function AuthForm() {
                  data.pseudo,
                  data.userID
                );
+               navigate("/");
              });
           } else {
             throw new Error("Fehler");
@@ -84,7 +86,7 @@ function AuthForm() {
               data.pseudo,
               data.userID
             );
-           
+            navigate("/");
           });
         } else {
           res.json().then((data) => {
