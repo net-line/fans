@@ -1,0 +1,11 @@
+.control{
+    margin:20px;
+   
+     width:95%;
+    display:flex;
+    justify-content: space-between;
+}
+.input{
+   margin:1%;
+   width:100%
+}

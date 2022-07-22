@@ -1,12 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AllApiGirls from "../../components/lists/allapigirls";
-import { useLocation, useNavigate } from "react-router-dom";
-import classes from "./models.module.css";
+import { useLocation } from "react-router-dom";
 
+import SearchForTags from "../../components/sonstige/searchfortags";
 
 
 const Models=(props)=>{
- const navigate = useNavigate();
+
   const location = useLocation();
   
   const [hasEntered,setHasEntered] = useState(null);
@@ -20,25 +20,11 @@ const Models=(props)=>{
   }, [location.state]);
   
 
-const questionref = useRef();
-
-   function submitHandler(event){
-    event.preventDefault();
-    const enteredvalue = "#"+questionref.current.value;
-    setHasEntered(enteredvalue);
-    navigate(`/models/${questionref.current.value}`);
-    
-   }
  
 return (
   <div>
-    <form onSubmit={submitHandler}>
-      <div className={classes.control}>
-        <label htmlFor="text">Suche nach Tags: </label>
-        <input type="text" id="suchtext" required ref={questionref} />
-      </div>
-    </form>
     
+    <SearchForTags />
     
     {!hasEntered&&<AllApiGirls />}
   </div>
