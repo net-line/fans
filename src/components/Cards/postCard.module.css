@@ -1,4 +1,4 @@
-.timeline {
+.timelineold {
 
   padding: 1%;
  background:#f1f1f1;
@@ -9,6 +9,20 @@
    margin-bottom:1.5%;
   font-size:0.8em;
   border-bottom:1px solid #888888;
+  }
+  .timeline {
+
+  padding: 1%;
+ background:#fff;
+
+ 
+  margin-left:1%;
+  margin-right:1%;
+ 
+   margin-bottom:1.5%;
+  font-size:0.8em;
+  border-radius: 9px 9px 0px 0px;
+  box-shadow:0px 4px 7px 2px  #e5e5eb;
   }
   
 .timelinetitle {
@@ -36,6 +50,7 @@
 .timelinecontent {
   padding: 0 20px 20px;
   font-size: 1.2em;
+   
   }
   
 .timelinecontent .heading {
@@ -59,6 +74,7 @@
   }  
   
 .timelinemenu {
+  border-bottom:1px solid #b0afbb;
   display: flex;
   align-items: center;
   padding:10px 0px;
@@ -73,6 +89,7 @@
   font-weight: 500;
   border-radius: 20px;
   margin-right: 10px;
+  background-color: #ccccd3;
   }
   
 .timelinemenuitem:hover {
@@ -100,8 +117,11 @@
   background:#04003b;
   } 
   .imageElement{
-    
+   
     width: 100%;
     display:block;
     margin:auto;
+  }
+  .smallMediaPreview{
+ font-size: 10px;
   }

@@ -30,9 +30,7 @@ return (
         <Col xs="12" lg="6" className={classes.timelinetitle}>
           Neuer Eintrag von{" "}
           <strong>
-            <Link to={`../${props.girl}`}>
-              {props.girl}
-            </Link>
+            <Link to={`../${props.girl}`}>{props.girl}</Link>
           </strong>
         </Col>
         <Col xs="12" lg="6" className={classes.timelinedate}>
@@ -101,7 +99,10 @@ return (
             <div className="" style={{ gap: "4px" }}>
               {props.thepost.payMedia.map((item) =>
                 item.isPaid ? (
-                  <div key={`a${item.guid}`} className="smallMediaPreview">
+                  <div
+                    key={`a${item.guid}`}
+                    className={classes.smallMediaPreview}
+                  >
                     <div
                       key={`b${item.guid}`}
                       className="smallMediaPreviewIcon"
@@ -126,7 +127,10 @@ return (
                   </div>
                 ) : (
                   <div key={`ba${item.guid}`}>
-                    <div key={`a${item.guid}`} className="smallMediaPreview">
+                    <div
+                      key={`a${item.guid}`}
+                      className={classes.smallMediaPreview}
+                    >
                       <div
                         key={`b${item.guid}`}
                         className="smallMediaPreviewIcon"
