@@ -7,18 +7,13 @@ import {Link} from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header className={classes.header}>
+   
       <div className={classes.logo}>
         <Link to="/">
           <img src="/images/deinefans_logo_2.png" alt="Logo" />
         </Link>
       </div>
-      <div className={classes.navlinks}>
-        
-       
-        
-      </div>
-    </header>
+  
   );
 };
 

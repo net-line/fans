@@ -1,32 +1,34 @@
 import React, { useRef} from "react";
 import classes from "./searchfortags.module.css";
 import { useNavigate } from "react-router-dom";
-const SearchForTags = (props) => {
-  
+import { useTranslation } from "react-i18next";
+const SearchForTags = () => {
+
  const navigate = useNavigate();
   const questionref = useRef();
+
+
+
 
   function submitHandler(event) {
     event.preventDefault();
     
     navigate(`/models/${questionref.current.value}`);
   }
-
+const {t}=useTranslation();
   return (
     <div>
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
-          <label htmlFor="text" className={classes.label}>
-            Suche nach Tags:{" "}
-          </label>
           <input
             type="text"
             id="suchtext"
+            placeholder="Suche nach Channels"
             required
             ref={questionref}
             className={classes.input}
           />
-          <button>Abschicken</button>
+          <button className={classes.myButton}>{t("abschicken")}</button>
         </div>
       </form>
     </div>

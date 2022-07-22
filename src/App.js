@@ -20,6 +20,7 @@ import FilteredApiGirls from './components/lists/filteredapigirls';
 import AuthContext from './context/testcontext';
 import TimeLineOfUser from './components/lists/timelineoffollowed';
 import AllSubscriptions from './components/lists/Subscriptions/allsubscriptions';
+import SearchForTags from './components/sonstige/searchfortags';
 //import Subscriptionmodal from './components/payment/subscriptionmodal';
 
 
@@ -71,6 +72,7 @@ const ProtectedRoute = ({
           path="/models/:filterID"
           element={
             <Mainpage>
+              <SearchForTags />
               <FilteredApiGirls />
             </Mainpage>
           }
@@ -116,7 +118,7 @@ const ProtectedRoute = ({
             </Mainpage>
           }
         />
-       
+
         <Route
           path="/favs"
           element={
@@ -150,6 +152,7 @@ const ProtectedRoute = ({
           path="/:girlId"
           element={
             <Mainpage>
+              <SearchForTags />
               <Detailsite />
             </Mainpage>
           }
