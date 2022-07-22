@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Fragment, useContext, useEffect, useState} from 'react';
+import React, {  useContext, useEffect, useState} from 'react';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -22,6 +22,7 @@ import TimeLineOfUser from './components/lists/timelineoffollowed';
 import AllSubscriptions from './components/lists/Subscriptions/allsubscriptions';
 import SearchForTags from './components/sonstige/searchfortags';
 //import Subscriptionmodal from './components/payment/subscriptionmodal';
+import classes from "./app.module.css";
 
 
 
@@ -47,7 +48,7 @@ const ProtectedRoute = ({
 
 
   return (
-    <Fragment>
+    <div className={classes.main}>
       <Routes>
         <Route
           exact
@@ -166,7 +167,7 @@ const ProtectedRoute = ({
         />
         
       </Routes>
-    </Fragment>
+    </div>
   );
 }
 

@@ -75,7 +75,7 @@ const {t}=useTranslation();
             <SinglePost girl={data.girl} /> */}
           </div>
         )}
-        {!isPremium && data && data.girl && (
+        {!isPremium && authCtx.isLoggedIn && data && data.girl && (
           <div>
             <h5 className={classes.head}>{t("addpaylong")}</h5>
             <Link to="/profile" className={classes.bigbutton}>
@@ -85,8 +85,10 @@ const {t}=useTranslation();
         )}
         {!isPremium && data && !data.girl && (
           <div>
-            <h5>{t("notfound")} {t("tryoneofthese")}</h5>
-          <AllApiGirls />
+            <h5>
+              {t("notfound")} {t("tryoneofthese")}
+            </h5>
+            <AllApiGirls />
           </div>
         )}
       </div>

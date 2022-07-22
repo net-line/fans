@@ -1,21 +1,17 @@
-body{
-  overflow-x: hidden;
-     background-color:#F8F9FA;
-}
+
 
 .fixme{
-    outline:none;
+  
     position:fixed;
     height:100vh;
-    width:24.7%;
-    position:relative fixed;
-    outline:none;
-     border:none;
+    
+   
 }
 .middle{
     background-color: #f1f1f1;
     min-height: 90vh;
 }
 .myrow{
-    max-width:100vw;
+    background-color: aqua;
+    
 }

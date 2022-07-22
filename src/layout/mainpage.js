@@ -5,6 +5,7 @@ import AllApiShort from "../components/lists/allapishort";
 
 import DynaFilters from "../components/lists/dynafilters";
 import Footer from "./footer";
+
 //import MiddleElement from "./middleelement";
 import classes from "./mainpage.module.css"
 
@@ -21,15 +22,16 @@ const Mainpage=(props)=>{
           <Col
             className={`${classes.middle}`}
             xs={{ size: 9, offset: 3 }}
-            lg={{ size: 6, offset: 3 }}
+            lg={{ size: 7, offset: 2 }}
           >
             {props.children}
           </Col>
           <Col className="bg-light d-none d-lg-block" xs="12" lg="3">
             <AllApiShort />
           </Col>
-          <Col xs="12"><Footer /></Col>
+          <Col xs="12"></Col>
         </Row>
+        <Footer />
       </div>
     );
 }
