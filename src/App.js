@@ -61,7 +61,7 @@ const ProtectedRoute = ({
         />
         <Route
           path="/models"
-          strict
+          exact
           element={
             <Mainpage>
               <Models />
@@ -79,6 +79,7 @@ const ProtectedRoute = ({
         />
         <Route
           path="/addcard"
+          exact
           element={
             <Mainpage>
               <AddCard />
@@ -104,9 +105,12 @@ const ProtectedRoute = ({
         />
         <Route
           path="/collection"
+          exact
           element={
             <Mainpage>
-              <Collection />
+              <ProtectedRoute user={user}>
+                <Collection />
+              </ProtectedRoute>
             </Mainpage>
           }
         />
@@ -121,6 +125,7 @@ const ProtectedRoute = ({
 
         <Route
           path="/favs"
+          exact
           element={
             <Mainpage>
               <ProtectedRoute user={user}>
@@ -131,6 +136,7 @@ const ProtectedRoute = ({
         />
         <Route
           path="/subscriptions"
+          exact
           element={
             <Mainpage>
               <ProtectedRoute user={user}>
@@ -149,6 +155,7 @@ const ProtectedRoute = ({
         />
         <Route path="/agb" element={<AGB />} />
         <Route
+        
           path="/:girlId"
           element={
             <Mainpage>
@@ -157,6 +164,7 @@ const ProtectedRoute = ({
             </Mainpage>
           }
         />
+        
       </Routes>
     </Fragment>
   );

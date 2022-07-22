@@ -150,8 +150,8 @@ useEffect(() => {
               )}
               <Row>
                 <Col xs="6">
-                  <h4>
-                    {modelname}
+                  <h4><Link to={`/${modelname}`}>
+                    {modelname}</Link>
                     <small> / {props.age} Jahre</small>
                   </h4>
                 </Col>

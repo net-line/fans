@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import AllTimeLine from "../components/lists/alltimeline";
 import classes from "./detail.module.css";
 import { useTranslation } from "react-i18next";
+import AllApiGirls from "../components/lists/allapigirls";
 
 
 const Detailsite=(props)=>{
@@ -36,6 +37,7 @@ const {t}=useTranslation();
   
    
  }
+
  useEffect(() => {
    window.scrollTo(0, 0);
  }, []);
@@ -73,12 +75,18 @@ const {t}=useTranslation();
             <SinglePost girl={data.girl} /> */}
           </div>
         )}
-        {!isPremium && (
+        {!isPremium && data && data.girl && (
           <div>
             <h5 className={classes.head}>{t("addpaylong")}</h5>
             <Link to="/profile" className={classes.bigbutton}>
               <div>{t("addpay")}</div>
             </Link>
+          </div>
+        )}
+        {!isPremium && data && !data.girl && (
+          <div>
+            <h5>{t("notfound")} {t("tryoneofthese")}</h5>
+          <AllApiGirls />
           </div>
         )}
       </div>
